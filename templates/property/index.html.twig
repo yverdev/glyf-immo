@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bien Immobilier!{% endblock %}
+
+{% block body %}
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({{ asset('images/hero_1.jpg') }});" data-aos="fade">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-5 mx-auto mt-lg-5 text-center">
+                    <h1>HD17 19 Utica Ave, New York, USA</h1>
+                    <p class="mb-5"><strong class="text-white">$2,000,000</strong></p>
+
+                </div>
+            </div>
+        </div>
+
+        <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
+    </div>
+
+    <div class="site-section" id="properties-section">
+    <div class="container">
+        <div class="row large-gutters">
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 ">
+                <div class="ftco-media-1">
+                    <div class="ftco-media-1-inner">
+                        <a href="property-single.html" class="d-inline-block mb-4"><img src="{{ asset('images/property_1.jpg') }}" alt="FImageo" class="img-fluid"></a>
+                        <div class="ftco-media-details">
+                            <h3>HD17 19 Utica Ave.</h3>
+                            <p>New York - USA</p>
+                            <strong>$20,000,000</strong>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
