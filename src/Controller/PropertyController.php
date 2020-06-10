@@ -12,7 +12,7 @@ class PropertyController extends AbstractController
      */
     public function index()
     {
-        return $this->render('property/index.html.twig', [
+        return $this->render('property/register.html.twig', [
             'controller_name' => 'PropertyController',
         ]);
     }
