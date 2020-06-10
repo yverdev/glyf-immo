@@ -12,7 +12,7 @@ class SearchController extends AbstractController
      */
     public function index()
     {
-        return $this->render('search/index.html.twig', [
+        return $this->render('search/propertyList.html.twig', [
             'controller_name' => 'SearchController',
         ]);
     }

@@ -13,7 +13,7 @@ class UserController extends AbstractController
      */
     public function index()
     {
-        return $this->render('search/index.html.twig', [
+        return $this->render('search/propertyList.html.twig', [
             'search' => 'searchBarController',
         ]);
     }
@@ -33,7 +33,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('user/detail.html.twig', [
+        return $this->render('user/propertyList.html.twig', [
             'user' => $user,
         ]);
     }

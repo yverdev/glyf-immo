@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\PropertySearchRepository;
+use App\Repository\PropertyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
