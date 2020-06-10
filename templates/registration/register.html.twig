@@ -3,10 +3,12 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+    {% include 'incs/background_header.html.twig' %}
+
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-<div class="pt-5">
+
 
 
     <h1>Register</h1>
@@ -24,5 +26,5 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
-</div>
+
 {% endblock %}

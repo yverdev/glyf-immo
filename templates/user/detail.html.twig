@@ -3,6 +3,8 @@
 {% block title %}Détails de l'utilisateur {{ user.username }}{% endblock %}
 
 {% block body %}
+    {% include 'incs/background_header.html.twig' %}
+
     <div class="row">
 
             <h1>{{ user.firstname }} {{ user.lastname }}</h1>
