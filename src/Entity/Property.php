@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
  */
-class PropertySearch
+class Property
 {
     /**
      * @ORM\Id()
