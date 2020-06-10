@@ -14,6 +14,7 @@
         "symfony/framework-bundle": "5.1.*",
         "symfony/mailer": "5.1.*",
         "symfony/maker-bundle": "^1.19",
+        "symfony/messenger": "5.1.*",
         "symfony/orm-pack": "^1.0",
         "symfony/profiler-pack": "^1.0",
         "symfony/security-bundle": "5.1.*",
