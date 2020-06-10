@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'utilisateur {{ user.username }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+
+            <h1>{{ user.firstname }} {{ user.lastname }}</h1>
+            <h2>{{ user.username }}</h2>
+            {#    <p>{{ user.email }}</p>#}
+            <p>Produits proposés par l'utilisateur : </p>
+{#            <ul>#}
+{#                {% for product in user.products %}#}
+{#                    <li>#}
+{#                        <a href="{{ path('product', {id : product.id}) }}">{{ product.name }}</a>#}
+{#                        {% if app.user == user %}#}
+{#                            <a class="btn btn-danger" href="#" onclick="if(confirm('Supprimer ?')) window.location.href='{{ path('delete_product', {id:product.id}) }}';">#}
+{#                                Supprimer#}
+{#                            </a>#}
+{#                        {% endif %}#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#            {% if app.user and app.user == user %}#}
+{#                <a class="btn btn-primary" href="{{ path('add_product') }}">Ajouter un produit</a>#}
+{#            {% endif %}#}
+
+    </div>
+{% endblock %}

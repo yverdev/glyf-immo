@@ -61,7 +61,13 @@
                                     <li><a href="#agents-section" class="nav-link">Locations</a></li>
                                     <li><a href="#about-section" class="nav-link">A propos</a></li>
                                     <li><a href="#news-section" class="nav-link">Contact</a></li>
-                                    <li><a href="#contact-section" class="nav-link">Login</a></li>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <li><a href="{{ path('profile') }}">Profil</a></li>
+                                        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                                    {% else %}
+                                    <li><a href="{{ path('app_login') }}" class="nav-link">Connexion</a></li>
+                                    <li><a href="{{ path('app_register') }}" class="nav-link">S'inscrire</a></li>
+                                    {% endif %}
                                 </ul>
                             </nav>
                         </div>
