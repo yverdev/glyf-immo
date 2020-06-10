@@ -3,38 +3,47 @@
 {% block title %}Bien Immobilier!{% endblock %}
 
 {% block body %}
-    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({{ asset('images/hero_1.jpg') }});" data-aos="fade">
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../public/images/hero_1.jpg);" data-aos="fade">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-5 mx-auto mt-lg-5 text-center">
-                    <h1>HD17 19 Utica Ave, New York, USA</h1>
-                    <p class="mb-5"><strong class="text-white">$2,000,000</strong></p>
-
+                    <h1>Votre biens</h1>
+                    <p class="mb-5"><strong class="text-white">prix</strong></p>
                 </div>
             </div>
         </div>
-
-        <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
     </div>
 
-    <div class="site-section" id="properties-section">
-    <div class="container">
-        <div class="row large-gutters">
-            <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 ">
-                <div class="ftco-media-1">
-                    <div class="ftco-media-1-inner">
-                        <a href="property-single.html" class="d-inline-block mb-4"><img src="{{ asset('images/property_1.jpg') }}" alt="FImageo" class="img-fluid"></a>
-                        <div class="ftco-media-details">
-                            <h3>HD17 19 Utica Ave.</h3>
-                            <p>New York - USA</p>
-                            <strong>$20,000,000</strong>
-                        </div>
-
+    <div class="site-section" id="property-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="owl-carousel slide-one-item with-dots">
+                        <div><img src="{{ asset('images/property_1.jpg') }}" alt="Image" class="img-fluid"></div>
+                        <div><img src="{{ asset('images/property_2.jpg') }}" alt="Image" class="img-fluid"></div>
+                        <div><img src="{{ asset('images/property_3.jpg') }}" alt="Image" class="img-fluid"></div>
                     </div>
                 </div>
+                <div class="col-lg-5 pl-lg-5 ml-auto">
+                    <div class="mb-5">
+                        <h3 class="text-black mb-4">Titre de l'annonce</h3>
+                        <p>Description de l'annonce</p>
+                        <p>Dans une boucle récupérer les infos de détails type surface, nbre de chambre, etc...</p>
+                    </div>
+
+                    <div class="mb-5">
+
+                        <div class="mt-5">
+                            <img src="{{ asset('images/person_1.jpg') }}" alt="Image" class="w-25 mb-3 rounded-circle">
+                            <h4 class="text-black">Nom de l'agent</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, iure atque sit ratione vitae neque! Laborum voluptate eius, laboriosam explicabo!</p>
+                            <p><a href="#" class="btn btn-primary btn-sm">Contactez notre Agence</a></p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
