@@ -4,7 +4,12 @@
 
 {% block body %}
     {% include 'incs/background_header.html.twig' %}
+    <h1 class="mt-4 mb-4">Gestion des des biens</h1>
 
+    <ul class="nav nav-tabs">
+        <li><a href="{{ path('property') }}" class="nav-link active">Affichage des biens</a></li>
+        <li><a href="#" class="nav-link">Détail des biens</a></li>
+    </ul>
     <div class="site-section" id="property-details">
         <div class="container">
             <div class="row">
