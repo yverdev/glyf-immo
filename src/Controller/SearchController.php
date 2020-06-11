@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Form\SearchFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SearchController extends AbstractController
@@ -10,10 +12,12 @@ class SearchController extends AbstractController
     /**
      * @Route("/search", name="search")
      */
-    public function index()
+    public function searchProperty(Request $request)
     {
-        return $this->render('search/propertyList.html.twig', [
-            'controller_name' => 'SearchController',
+        $form = $this->createForm(SearchFormType::class);
+        //dd($form);
+        return $this->render('search/index.html.twig', [
+            'search_form' => $form->createView(),
         ]);
     }
 }
