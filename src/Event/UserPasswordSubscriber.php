@@ -30,17 +30,29 @@ class UserPasswordSubscriber implements EventSubscriber
     public function getSubscribedEvents()
     {
         return [
-            Events::prePersist
+            Events::prePersist,
+            Events::preUpdate
         ];
+    }
+
+    public function preSave(LifecycleEventArgs $eventArgs){
+        if ($eventArgs ->getObject() instanceof User ) {
+            $user = $eventArgs->getObject();
+            $password = $user->getPassword();
+            if ($password){
+                $passwordEncoded = $this->passwordEncoder->encodePassword($user, $password);
+                $user->setPassword($passwordEncoded);
+            }
+        }
     }
 
     public function prePersist(LifecycleEventArgs $eventArgs)
     {
-        if ($eventArgs ->getObject() instanceof User ) {
-            $user = $eventArgs->getObject();
-            $password = $user->getPassword();
-            $passwordEncoded = $this->passwordEncoder->encodePassword($user, $password);
-            $user->setPassword($passwordEncoded);
-        }
+        $this->preSave($eventArgs);
+    }
+
+    public function preUpdate(LifecycleEventArgs $eventArgs)
+    {
+        $this->preSave($eventArgs);
     }
 }

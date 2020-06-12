@@ -1,8 +1,14 @@
 <?php
 namespace App\Controller;
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Security;
+
 class UserController extends AbstractController
 {
     /**
@@ -31,5 +37,18 @@ class UserController extends AbstractController
         return $this->render('user/detail.html.twig', [
             'user' => $user,
         ]);
+    }
+
+    /**
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     * @Route("/user/delete/{id<\d+>}", name="delete_user")
+     */
+
+    public function deleteUser(EntityManagerInterface $objectManager, User $user, TokenStorageInterface $tokenStorage)
+    {
+        $tokenStorage->setToken();
+        $objectManager->remove($user);
+        $objectManager->flush();
+        return $this->redirectToRoute('app_logout');
     }
 }
