@@ -11,6 +11,10 @@
             <h2 class="mt-5">{{ user.firstname }} {{ user.lastname }}</h2>
                 <p>Email : {{ user.email }}</p>
                 <p>Téléphone : {{ user.phone }}</p>
+            <a class="btn btn-primary" href="{{ path('app_register') }}">Modifier votre profil</a>
+            <a class="btn btn-danger" href="#" onclick="if(confirm('Êtes-vous sûr(e) de vouloir supprimer votre compte ?')) window.location.href='{{ path('delete_user', {id:user.id}) }}';">Supprimer votre compte</a>
+
+
 {#            <p>Produits proposés par l'utilisateur : </p>#}
 {#            <ul>#}
 {#                {% for product in user.products %}#}

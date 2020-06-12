@@ -1,5 +1,58 @@
 easy_admin:
     entities:
-        - App\Entity\Property
-        - App\Entity\User
+        Property:
+            class: App\Entity\Property
+            label: 'Propriétés'
+            form:
+                fields:
+                    - { property: 'ref', label: 'Référence' }
+                    - { property: 'title', label: 'Nom du bien' }
+                    - { property: 'description', label: 'Description', type: 'textarea'}
+                    - { property: 'picture', label: 'Photos', type: 'file' }
+                    - { property: 'price', label: 'Prix', type: 'money', type_options: { currency: 'EUR' }}
+                    - { property: 'surface', label: 'Surface' }
+                    - { property: 'adress', label: 'Adresse' }
+                    - { property: 'postal_code', label: 'Code postal' }
+                    - { property: 'City', label: 'Ville', type: 'text'}
+                    - { property: 'number_of_parts', label: 'Nombre de pièces' }
+                    - { property: 'number_of_bedrooms', label: 'Nombre de chambres' }
+                    - { property: 'garage', label: 'Garage' }
+                    - { property: 'parking', label: 'Parking' }
+                    - { property: 'balcony', label: 'Balcon' }
+                    - { property: 'garden', label: 'Jardin' }
+                    - { property: 'floor', label: 'Étage' }
+                    - { property: 'locality', label: 'Localité' }
+                    - { property: 'rental', label: 'Location' }
+                    - { property: 'sale', label: 'Vente' }
+                    - { property: 'apartment', label: 'Appartement' }
+                    - { property: 'house', label: 'Maison' }
+                    - { property: 'furnished', label: 'Meublé' }
+                    - { property: 'caretaker', label: 'Gardien' }
+                    - { property: 'handicap_access', label: 'Accès handicapé' }
+                    - { property: 'heater', label: 'Chauffage' }
+            list:
+                fields: ['ref', { property: 'title', label: 'Nom du bien'}, { property: 'picture', label: 'Photos' }, { property: 'price', label: 'Prix' }, { property: 'adress', label: 'Adresse' }, { property: 'postal_code', label: 'Code postal'}, { property: 'city', label: 'Ville' }]
+
+
+        User:
+            class: App\Entity\User
+            label: 'Utilisateurs'
+            form:
+                fields:
+                    - { property: 'username', label: "Nom d'utilisateur" }
+                    - { property: 'password', label: 'Mot de passe', type: password  }
+                    - { property: 'firstname', label: 'Prénom'}
+                    - { property: 'lastname', label: 'Nom' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'phone', label: 'Téléphone' }
+                    - { property: 'is_verified', label: 'Email vérifié', type: 'checkbox' }
+                    - { property: 'roles', label: 'Rôles', type: 'choice',  type_options: { choices: [Utilisateur: 'ROLE_USER', Administrateur: 'ROLE_ADMIN'], expanded: true, multiple: true} }
+            list:
+                title: "Liste des utilisateurs"
+                fields: ['id',{ property: 'rolesPretty', label: 'Administrateur' }, { property: 'username', label: "Nom d'utilisateur"}, { property: 'firstname', label: 'Prénom'}, { property: 'lastname', label: 'Nom'}, { property: 'phone', label: 'Téléphone', type: tel }, { property: 'email', label: 'Email', type: email }, {  property: 'is_verified', label: 'Email vérifié', type: toggle}]
+
+    design:
+        menu:
+            - {entity: 'Property', icon: 'home'}
+            - {entity: 'User', icon: 'user'}
 
