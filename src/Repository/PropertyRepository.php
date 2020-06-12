@@ -22,19 +22,20 @@ class PropertyRepository extends ServiceEntityRepository
     // /**
     //  * @return Property[] Returns an array of Property objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+/*    public function findProperties($criteria)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->leftJoin('p.ref', 'ref')
+            ->where('ref = :ref')
+            ->setParameter('p.ref', $criteria['ref']->getRef())
+            ->andWhere('title = :title')
+            ->setParameter('title', $criteria['title']->getTitle())
             ->getQuery()
             ->getResult()
         ;
-    }
-    */
+    }*/
+
 
     /*
     public function findOneBySomeField($value): ?Property

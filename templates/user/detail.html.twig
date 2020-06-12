@@ -4,13 +4,14 @@
 
 {% block body %}
     {% include 'incs/background_header.html.twig' %}
-
+<div class="container">
     <div class="row">
-
-            <h1>{{ user.firstname }} {{ user.lastname }}</h1>
-            <h2>{{ user.username }}</h2>
-            {#    <p>{{ user.email }}</p>#}
-            <p>Produits proposés par l'utilisateur : </p>
+        <div class="col-12 mt-5">
+            <h1 class="text-center">{{ user.username }}</h1>
+            <h2 class="mt-5">{{ user.firstname }} {{ user.lastname }}</h2>
+                <p>Email : {{ user.email }}</p>
+                <p>Téléphone : {{ user.phone }}</p>
+{#            <p>Produits proposés par l'utilisateur : </p>#}
 {#            <ul>#}
 {#                {% for product in user.products %}#}
 {#                    <li>#}
@@ -26,6 +27,7 @@
 {#            {% if app.user and app.user == user %}#}
 {#                <a class="btn btn-primary" href="{{ path('add_product') }}">Ajouter un produit</a>#}
 {#            {% endif %}#}
-
+        </div>
     </div>
+</div>
 {% endblock %}
