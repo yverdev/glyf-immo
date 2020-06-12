@@ -24,7 +24,13 @@ class PropertyFixtures extends Fixture
                 ->setNumberOfBedrooms(random_int(1, 5))
                 ->setHeater(true)
                 ->setRef(random_int(100, 50000))
-                ->setSurface(random_int(18, 400));
+                ->setSurface(random_int(18, 400))
+                ->setNumberOfBedrooms(random_int(1, 4))
+                ->setApartment(true)
+                ->setFloor(random_int(1, 5))
+                ->setNumberOfParts(random_int(2, 5))
+                ->setSale(true);
+
 
             $manager->persist($property);
         }

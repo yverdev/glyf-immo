@@ -153,6 +153,16 @@ class Property
      */
     private $heater;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createAt;
+
+    public function __construct()
+    {
+        $this->createAt = new \DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -488,6 +498,18 @@ class Property
     public function setHeater(?string $heater): self
     {
         $this->heater = $heater;
+
+        return $this;
+    }
+
+    public function getCreateAt(): ?\DateTimeInterface
+    {
+        return $this->createAt;
+    }
+
+    public function setCreateAt(\DateTimeInterface $createAt): self
+    {
+        $this->createAt = $createAt;
 
         return $this;
     }
