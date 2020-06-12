@@ -4,78 +4,27 @@
 
 {% block body %}
     {% include 'incs/background_header.html.twig' %}
-    <h1 class="mt-4 mb-4">Gestion des des biens</h1>
-
-    <ul class="nav nav-tabs">
-        <li><a href="{{ path('property') }}" class="nav-link active">Affichage des biens</a></li>
-        <li><a href="#" class="nav-link">Détail des biens</a></li>
-    </ul>
-    <div class="site-section" id="property-details">
-        <div class="container">
-            <div class="row">
-                <div class="table-responsive table-bordered movie-table">
-                    <table class="table movie-table">
-                        <thead>
-                        <tr class= "movie-table-head">
-                            <th>Détail</th>
-                            <th>Référence</th>
-                            <th>Vente</th>
-                            <th>Location</th>
-                            <th>Maison</th>
-                            <th>Appartement</th>
-                            <th>Titre</th>
-                            <th>Prix</th>
-                            <th>Surface</th>
-                            <th>Code Postal</th>
-                            <th>Ville</th>
-                            <th>Nombre de pièces</th>
-                            <th>Nombre de chambre</th>
-                            <th>Etage</th>
-                            <th>Garage</th>
-                            <th>Parking</th>
-                            <th>Balcon</th>
-                            <th>Jardin</th>
-                            <th>Meublée</th>
-                            <th>Vis à Vis</th>
-                            <th>Chauffage</th>
-                            <th>Concierge</th>
-                            <th>Accès handicapé</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                            {% for property in properties %}
-                                <tr>
-                                    <td><a href="{{ path('detailProperty', {'id': property.id }) }}" class="btn btn-primary">Détail</a></td>
-                                    <td>{{ property.ref }}</td>
-                                    <td>{{ property.sale }}</td>
-                                    <td>{{ property.rental }}</td>
-                                    <td>{{ property.house }}</td>
-                                    <td>{{ property.apartment }}</td>
-                                    <td>{{ property.title }}</td>
-                                    <td>{{ property.price }}</td>
-                                    <td>{{ property.surface }}</td>
-                                    <td>{{ property.postalCode }}</td>
-                                    <td>{{ property.city }}</td>
-                                    <td>{{ property.numberOfParts }}</td>
-                                    <td>{{ property.numberOfBedrooms }}</td>
-                                    <td>{{ property.floor }}</td>
-                                    <td>{{ property.garage }}</td>
-                                    <td>{{ property.parking }}</td>
-                                    <td>{{ property.balcony }}</td>
-                                    <td>{{ property.garden }}</td>
-                                    <td>{{ property.furnished }}</td>
-                                    <td>{{ property.opposite }}</td>
-                                    <td>{{ property.heater }}</td>
-                                    <td>{{ property.caretaker }}</td>
-                                    <td>{{ property.handicapAccess }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+    <div class="jumbotron">
+        <h1 class="text-center font-weight-bold">Tous nos biens</h1>
+    </div>
+    <div class="container">
+        <h2>Les derniers biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('detailProperty', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-text">{{ property.postalCode }} - {{ property.city }}</p>
+                            <div class="text-secondary font-weight-bold">{{ property.formatedPrice }} €</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
+
 
 {% endblock %}

@@ -22,11 +22,16 @@ class PropertyController extends AbstractController
     }
 
     /**
-     * @Route("/property/{id}", name="detailProperty")
+     * @Route("/property/{slug}{id}", name="detailProperty", requirements={"slug": "[a-z0-9\-]*"})
      */
-    public function show(Property $property)
+    public function show(Property $property, string $slug)
     {
-
+        if($property->getSlug() !== $slug){
+            return $this->redirectToRoute('detailProperty', [
+               'id' => $property->getId(),
+               'slug' => $property->getSlug()
+            ], 301);
+        }
         return $this->render('property/propertyDetail.html.twig', [
             'property' => $property,
         ]);

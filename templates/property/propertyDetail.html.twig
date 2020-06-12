@@ -18,19 +18,38 @@
 
                     <div class="col-lg-5 pl-lg-5 ml-auto">
                         <div class="mb-5">
-                            <h3 class="text-black mb-4">{{ property.price }}</h3>
-                            <p>{{property.price}} €</p>
-                            <p>{{property.postalCode}}</p>
-                            <p>{{property.city}}</p>
-                            <p>{{property.description}}</p>
+                            <p class="text-black mb-4">Réf: {{ property.ref }}</p>
+                            <h1 class="font-weight-bold">{{property.title}}</h1>
+                            <H2>{{property.numberOfParts}} pièces - {{ property.surface }} M2</H2>
+                            <div class="text-primary text-weight-bold">{{ property.formatedPrice }} €</div>
+                            <p>{{ property.description | nl2br }}</p>
                         </div>
 
                         <div class="mb-5">
 
                             <div class="mt-5">
-                                <img src="{{ asset('images/person_1.jpg') }}" alt="Image" class="w-25 mb-3 rounded-circle">
-                                <h4 class="text-black">Nom de l'agent</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, iure atque sit ratione vitae neque! Laborum voluptate eius, laboriosam explicabo!</p>
+                                <table class="table table-stripped">
+                                    <tr>
+                                        <td>Surface</td>
+                                        <td>{{ property.surface }} M2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pièces</td>
+                                        <td>{{ property.numberOfParts }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chambres</td>
+                                        <td>{{ property.numberOfBedrooms }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Etage</td>
+                                        <td>{{ property.floor }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chauffage</td>
+                                        <td>{{ property.heater }}</td>
+                                    </tr>
+                                </table>
                                 <p><a href="#" class="btn btn-primary btn-sm">Contactez notre Agence</a></p>
                             </div>
                         </div>

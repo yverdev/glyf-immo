@@ -2,3 +2,4 @@ easy_admin:
     entities:
         - App\Entity\Property
         - App\Entity\User
+
