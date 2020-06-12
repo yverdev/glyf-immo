@@ -239,11 +239,9 @@ jQuery(document).ready(function($) {
 	// navigation
   var OnePageNavigation = function() {
     var navToggler = $('.site-menu-toggle');
-<<<<<<< HEAD
+
    	$("body").on("click", ".main-menu li a[href^='{{ path('')}} '], .smoothscroll[href^='{{ path('')}}'], .site-mobile-menu .site-nav-wrap li a", function(e) {
-=======
-   	$("body").on("click", ".main-menu li a[href^='{{ path('') }}'], .smoothscroll[href^='{{ path('') }}'], .site-mobile-menu .site-nav-wrap li a", function(e) {
->>>>>>> 3d93628233577390649feca26ad69dfda9e50d9f
+
       e.preventDefault();
 
       var hash = this.hash;
