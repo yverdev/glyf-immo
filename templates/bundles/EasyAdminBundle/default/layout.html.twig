@@ -1,5 +1,5 @@
 {% extends '@!EasyAdmin/default/layout.html.twig' %}
-
+{% block title %}Administration{% endblock %}
 {% block user_menu %}
     {% if _user_has_logout or _user_is_impersonated %}
         <div class="popover-content-section user-menu">

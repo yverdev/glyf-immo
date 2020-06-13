@@ -5,8 +5,11 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
+use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
@@ -25,18 +28,25 @@ class RegistrationController extends AbstractController
 
     /**
      * @Route("/register", name="app_register")
+     * @Route("/register/edit/{id<\d+>}", name="edit_user")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $objectManager, User $user = null): Response
     {
-        $user = new User();
+        if($user === null){
+            $user = new User();
+        }
+
         $form = $this->createForm(RegistrationFormType::class, $user);
+        $form->add('submit', SubmitType::class,[
+            'label' => ($user->getId() ? "Editer" : "Ajouter") . " votre profil"
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             $user->setPassword($form->get('plainPassword')->getData());
 
-            $user->setRoles(['ROLE_USER']);
+//            $user->setRoles(['ROLE_USER']);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -52,6 +62,8 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
+            $objectManager->persist($user);
+            $objectManager->flush();
             return $this->redirectToRoute('home');
         }
 

@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détails de l'utilisateur {{ user.username }}{% endblock %}
+{% block title %}{{ user.username }}{% endblock %}
 
 {% block body %}
     {% include 'incs/background_header.html.twig' %}
 <div class="container">
     <div class="row">
         <div class="col-12 mt-5">
-            <h1 class="text-center">{{ user.username }}</h1>
-            <h2 class="mt-5">{{ user.firstname }} {{ user.lastname }}</h2>
-                <p>Email : {{ user.email }}</p>
-                <p>Téléphone : {{ user.phone }}</p>
-            <a class="btn btn-primary" href="{{ path('app_register') }}">Modifier votre profil</a>
-            <a class="btn btn-danger" href="#" onclick="if(confirm('Êtes-vous sûr(e) de vouloir supprimer votre compte ?')) window.location.href='{{ path('delete_user', {id:user.id}) }}';">Supprimer votre compte</a>
+            <p class="text-center display-4">Bonjour <strong>{{ user.firstname }} {{ user.lastname }}</strong></p>
+            <p class="mt-5"><i class="far fa-user"></i> : {{ user.username }}</p>
+                <p ><i class="far fa-envelope"></i> : {{ user.email }}</p>
+                <p><i class="fas fa-mobile-alt"></i> : {{ user.phone }}</p>
+            <a class="btn btn-primary" href="{{ path('edit_user', {id:user.id}) }}"><i class="far fa-edit"></i></a>
+            <a class="btn btn-danger ml-3" href="#" onclick="if(confirm('Êtes-vous sûr(e) de vouloir supprimer votre compte ?')) window.location.href='{{ path('delete_user', {id:user.id}) }}';"><i class="far fa-trash-alt"></i></a>
 
 
 {#            <p>Produits proposés par l'utilisateur : </p>#}
