@@ -21,14 +21,14 @@ class PropertyFixtures extends Fixture
                 ->setPostalCode(random_int(75000, 75020))
                 ->setDescription("Ma super description $i")
                 ->setPrice(random_int(10000, 1000000))
-                ->setNumberOfBedrooms(random_int(1, 5))
+                ->setBedrooms(random_int(1, 5))
                 ->setHeater(true)
                 ->setRef(random_int(100, 50000))
                 ->setSurface(random_int(18, 400))
-                ->setNumberOfBedrooms(random_int(1, 4))
+                ->setBedrooms(random_int(1, 4))
                 ->setApartment(true)
                 ->setFloor(random_int(1, 5))
-                ->setNumberOfParts(random_int(2, 5))
+                ->setRooms(random_int(2, 5))
                 ->setSale(true);
 
 
