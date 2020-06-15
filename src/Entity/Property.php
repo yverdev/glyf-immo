@@ -66,12 +66,12 @@ class Property
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $number_of_parts;
+    private $rooms;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $number_of_bedrooms;
+    private $bedrooms;
 
     /**
      * @ORM\Column(type="string", length=30, nullable=true)
@@ -286,26 +286,26 @@ class Property
         return $this;
     }
 
-    public function getNumberOfParts(): ?int
+    public function getRooms(): ?int
     {
-        return $this->number_of_parts;
+        return $this->rooms;
     }
 
-    public function setNumberOfParts(?int $number_of_parts): self
+    public function setRooms(?int $rooms): self
     {
-        $this->number_of_parts = $number_of_parts;
+        $this->rooms = $rooms;
 
         return $this;
     }
 
-    public function getNumberOfBedrooms(): ?int
+    public function getBedrooms(): ?int
     {
-        return $this->number_of_bedrooms;
+        return $this->bedrooms;
     }
 
-    public function setNumberOfBedrooms(?int $number_of_bedrooms): self
+    public function setBedrooms(?int $bedrooms): self
     {
-        $this->number_of_bedrooms = $number_of_bedrooms;
+        $this->bedrooms = $bedrooms;
 
         return $this;
     }
@@ -513,4 +513,6 @@ class Property
 
         return $this;
     }
+
+
 }

@@ -19,22 +19,20 @@ class PropertyRepository extends ServiceEntityRepository
         parent::__construct($registry, Property::class);
     }
 
-    // /**
-    //  * @return Property[] Returns an array of Property objects
-    //  */
 
-/*    public function findProperties($criteria)
-    {
-        return $this->createQueryBuilder('p')
-            ->leftJoin('p.ref', 'ref')
-            ->where('ref = :ref')
-            ->setParameter('p.ref', $criteria['ref']->getRef())
-            ->andWhere('title = :title')
-            ->setParameter('title', $criteria['title']->getTitle())
-            ->getQuery()
-            ->getResult()
-        ;
-    }*/
+
+//    public function findProperties($criteria)
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->leftJoin('p.properties', 'property')
+//            ->where('property.city = :ref')
+//            ->setParameter('p.ref', $criteria['ref']->getRef())
+//            ->andWhere('title = :title')
+//            ->setParameter('title', $criteria['title']->getTitle())
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
 
 
     /*
