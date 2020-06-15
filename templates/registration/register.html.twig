@@ -15,9 +15,11 @@
 
         {{ form_start(registrationForm) }}
             {{ form_row(registrationForm.username) }}
+        {% if not app.user or not app.user.id %}
         {{ form_row(registrationForm.plainPassword, {
                 label: 'Mot de passe'
             }) }}
+        {% endif %}
             {{ form_row(registrationForm.firstname) }}
             {{ form_row(registrationForm.lastname) }}
             {{ form_row(registrationForm.email) }}
@@ -26,5 +28,8 @@
 
     {#        <button type="submit" class="btn">Register</button>#}
         {{ form_end(registrationForm) }}
+        {% if app.user %}
+            <a href="{{ path('change_password.html.twig') }}" class="btn btn-danger">Modifier votre mot de passe</a>
+        {% endif %}
     </div>
 {% endblock %}
