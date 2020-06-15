@@ -1,5 +1,10 @@
 {% extends '@!EasyAdmin/default/layout.html.twig' %}
 {% block title %}Administration{% endblock %}
+
+{% block header_logo %}
+    <a class="user-action user-action-exit-impersonation" href="{{ path('home') }}">Retour à l'accueil</a>
+{% endblock header_logo %}
+
 {% block user_menu %}
     {% if _user_has_logout or _user_is_impersonated %}
         <div class="popover-content-section user-menu">

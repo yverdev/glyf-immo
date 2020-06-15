@@ -221,7 +221,10 @@ class User implements UserInterface
     {
         if(in_array('ROLE_ADMIN', $this->roles)){
             return 'Administrateur';
-        } else {
+        } elseif (in_array('ROLE_PROPERTIES_MANAGER', $this->roles)){
+            return 'Gestionnaire';
+        }
+        else {
             return 'Utilisateur';
         }
     }

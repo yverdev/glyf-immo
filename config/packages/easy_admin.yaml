@@ -2,6 +2,7 @@ easy_admin:
     entities:
         Property:
             class: App\Entity\Property
+            role_prefix: ROLE_PROPERTIES_MANAGER
             label: 'Propriétés'
             form:
                 fields:
@@ -36,6 +37,7 @@ easy_admin:
 
         User:
             class: App\Entity\User
+#            role_prefix: ROLE_ADMIN
             label: 'Utilisateurs'
             form:
                 fields:
@@ -46,13 +48,14 @@ easy_admin:
                     - { property: 'email', label: 'Email' }
                     - { property: 'phone', label: 'Téléphone' }
                     - { property: 'is_verified', label: 'Email vérifié', type: 'checkbox' }
-                    - { property: 'roles', label: 'Rôles', type: 'choice',  type_options: { choices: [Utilisateur: 'ROLE_USER', Administrateur: 'ROLE_ADMIN'], expanded: true, multiple: true} }
+                    - { property: 'roles', label: 'Rôles', type: 'choice',  type_options: { choices: [Utilisateur: 'ROLE_USER', Administrateur: 'ROLE_ADMIN', Gestionnaire: 'ROLE_PROPERTIES_MANAGER'], expanded: true, multiple: true} }
             list:
+                item_permission: 'ROLE_ADMIN'
                 title: "Liste des utilisateurs"
                 fields: ['id',{ property: 'rolesPretty', label: 'Administrateur' }, { property: 'username', label: "Nom d'utilisateur"}, { property: 'firstname', label: 'Prénom'}, { property: 'lastname', label: 'Nom'}, { property: 'phone', label: 'Téléphone', type: tel }, { property: 'email', label: 'Email', type: email }, {  property: 'is_verified', label: 'Email vérifié', type: toggle}]
 
     design:
         menu:
-            - {entity: 'Property', icon: 'home'}
-            - {entity: 'User', icon: 'user'}
+            - {entity: 'Property', icon: 'home', permission: ROLE_PROPERTIES_MANAGER}
+            - {entity: 'User', icon: 'user', permission: ROLE_ADMIN}
 

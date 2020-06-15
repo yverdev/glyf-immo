@@ -61,13 +61,15 @@
                                     <li><a href="{{path("home")}}" class="nav-link">Accueil</a></li>
                                     <li><a href="{{path('property')}}" class="nav-link">Achats-Ventes</a></li>
                                     <li><a href="#agents-section" class="nav-link">Locations</a></li>
-                                    <li><a href="#about-section" class="nav-link">A propos</a></li>
+{#                                    <li><a href="#about-section" class="nav-link">A propos</a></li>#}
                                     <li><a href="#news-section" class="nav-link">Contact</a></li>
                                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                         <li><a href="{{ path('profile') }}">Profil</a></li>
                                         <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
                                         {% if is_granted('ROLE_ADMIN')%}
                                             <li><a href="{{ path('easyadmin') }}">Admin</a></li>
+                                            {% elseif is_granted('ROLE_PROPERTIES_MANAGER') %}
+                                            <li><a href="{{ path('easyadmin') }}">Gestion des biens</a></li>
                                         {% endif %}
                                     {% else %}
                                     <li><a href="{{ path('app_login') }}" class="nav-link">Connexion</a></li>
