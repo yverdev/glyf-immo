@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,22 +20,12 @@ class ChangePasswordType extends AbstractType
                 'label' => 'Ancien mot de passe'
 
             ])
-            ->add('new_password', PasswordType::class, [
-                'label' => 'Nouveau mot de passe'
-            ])
-            ->add('new_password_confirm', PasswordType::class, [
-                'label' => 'Confirmer nouveau mot de passe',
-                'mapped' => false,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Entrez votre mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit être d\'au moins {{ limit }} caractères.',
-                        'max' => 4096,
-                    ]),
-                ],
+            ->add('new_password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'invalid_message' => 'Les deux mots de passe doivent correspondre.',
+                'required' => true,
+                'first_options'  => ['label' => 'Nouveau mot de passe'],
+                'second_options' => ['label' => 'Confirmer le mot de passe']
             ])
             ;
     }

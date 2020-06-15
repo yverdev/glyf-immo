@@ -108,18 +108,33 @@ class RegistrationController extends AbstractController
 
     public function changeUserPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
         $user = $this->getUser();
 
         $form = $this->createForm(ChangePasswordType::class);
 
         $form->add('submit', SubmitType::class, [
-            'label' => "Editer votre mot de passe."
+            'label' => "Editer votre mot de passe"
         ]);
         $form->handleRequest($request);
 
-        $old_password = $request->get('old_password');
-        $new_password = $request->get('new_password');
-        $new_password_confirm = $request->get('new_password_confirm');
+        if ($form->isSubmitted() && $form->isValid()) {
+            # $old_password = $request->get('old_password');
+            # $new_password = $request->get('new_password');
+
+            $newpwd = $form->get('new_password')->getData();
+
+            $newEncodedPassword = $passwordEncoder->encodePassword($user, $newpwd);
+            $user->setPassword($newEncodedPassword);
+
+            $entityManager->flush();
+            $entityManager->persist($user);
+            $this->addFlash('notice', 'Votre mot de passe a bien été changé !');
+
+            return $this->redirectToRoute('profile');
+        }
 
         return $this->render('registration/change_password.html.twig', [
             'changePasswordForm' => $form->createView(),
