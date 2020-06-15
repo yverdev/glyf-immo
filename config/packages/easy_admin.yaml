@@ -40,7 +40,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'username', label: "Nom d'utilisateur" }
-                    - { property: 'password', label: 'Mot de passe', type: password  }
+                    # - { property: 'password', label: 'Mot de passe', type: password  }
                     - { property: 'firstname', label: 'Prénom'}
                     - { property: 'lastname', label: 'Nom' }
                     - { property: 'email', label: 'Email' }
