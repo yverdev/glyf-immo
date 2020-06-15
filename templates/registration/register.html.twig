@@ -29,7 +29,7 @@
     {#        <button type="submit" class="btn">Register</button>#}
         {{ form_end(registrationForm) }}
         {% if app.user %}
-            <a href="{{ path('change_password.html.twig') }}" class="btn btn-danger">Modifier votre mot de passe</a>
+            <a href="{{ path('change_password') }}" class="btn btn-danger">Modifier votre mot de passe</a>
         {% endif %}
     </div>
 {% endblock %}

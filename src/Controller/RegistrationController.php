@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ChangePasswordType;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
@@ -97,5 +98,31 @@ class RegistrationController extends AbstractController
         $this->addFlash('success', 'Votre adresse email a été vérifiée.');
 
         return $this->redirectToRoute('app_register');
+    }
+
+    /**
+     * @Route("/change/password", name="change_password")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     */
+
+    public function changeUserPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $user = $this->getUser();
+
+        $form = $this->createForm(ChangePasswordType::class);
+
+        $form->add('submit', SubmitType::class, [
+            'label' => "Editer votre mot de passe."
+        ]);
+        $form->handleRequest($request);
+
+        $old_password = $request->get('old_password');
+        $new_password = $request->get('new_password');
+        $new_password_confirm = $request->get('new_password_confirm');
+
+        return $this->render('registration/change_password.html.twig', [
+            'changePasswordForm' => $form->createView(),
+        ]);
     }
 }

@@ -22,20 +22,19 @@ class ChangePasswordType extends AbstractType
             ->add('new_password', PasswordType::class, [
                 'label' => 'Nouveau mot de passe'
             ])
-            ->add('confirm_new_password', PasswordType::class, [
+            ->add('new_password_confirm', PasswordType::class, [
                 'label' => 'Confirmer nouveau mot de passe',
                 'mapped' => false,
-                    'constraints' => [
-                        new NotBlank([
-                            'message' => 'Entrez votre mot de passe',
-                        ]),
-                        new Length([
-                            'min' => 6,
-                            'minMessage' => 'Votre mot de passe doit être d\'au moins {{ limit }} caractères.',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 4096,
-                        ]),
-                    ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Entrez votre mot de passe',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Votre mot de passe doit être d\'au moins {{ limit }} caractères.',
+                        'max' => 4096,
+                    ]),
+                ],
             ])
             ;
     }
