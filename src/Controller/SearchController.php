@@ -31,20 +31,30 @@ class SearchController extends AbstractController
         $form = $this->createForm(SearchFormType::class);
 
         if($form->handleRequest($request)->isSubmitted() && $form->isValid()){
-            $criteria = $this->$form->getData();
+            $criteria = $form->getData();
         //dd($criteria);
         }
 
         $algoliaFilter = [];
         foreach ($criteria as $k => $v) {
-            $algoliaFilter[] = '$k: $v';
+            if(!$v){
+                continue;
+            }
+            if($k == 'price' ){
+                $v = intval($v);
+                $op = "=";
+            }else{
+                $v = "\"$v\"";
+                $op = ":";
+            }
+            $algoliaFilter[] = "$k$op$v";
         }
-        $resultFilter = implode('AND', $algoliaFilter);
+        $resultFilter = implode(' AND ', $algoliaFilter);
         //dd($resultFilter);
         $em = $this->getDoctrine()->getManagerForClass(Property::class);
         $properties = $this->searchService->search($em,Property::class, '', [
-            'page' => 0,
-            'hitsPerPage' => 10,
+            'page' => 1,
+            'hitsPerPage' => 3,
             'filters' => $resultFilter
         ]);
         //dd($properties);
