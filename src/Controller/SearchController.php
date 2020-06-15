@@ -6,6 +6,7 @@ use App\Entity\Property;
 use App\Form\SearchFormType;
 use App\Repository\PropertyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Algolia\SearchBundle\SearchService;
@@ -26,26 +27,33 @@ class SearchController extends AbstractController
 
     public function search(Request $request, PropertyRepository $propertyRepository)
     {
-
+        $criteria = [];
         $form = $this->createForm(SearchFormType::class);
 
         if($form->handleRequest($request)->isSubmitted() && $form->isValid()){
-            $criteria = $form->getData();
-            dd($criteria);
+            $criteria = $this->$form->getData();
+        //dd($criteria);
         }
+
+        $algoliaFilter = [];
+        foreach ($criteria as $k => $v) {
+            $algoliaFilter[] = '$k: $v';
+        }
+        $resultFilter = implode('AND', $algoliaFilter);
+        //dd($resultFilter);
+        $em = $this->getDoctrine()->getManagerForClass(Property::class);
+        $properties = $this->searchService->search($em,Property::class, '', [
+            'page' => 0,
+            'hitsPerPage' => 10,
+            'filters' => $resultFilter
+        ]);
+        //dd($properties);
         return $this->render('search/search.html.twig', [
+            'results' => $properties,
             'searchForm' => $form->createView()
 
         ]);
-
-
-
-        $em = $this->getDoctrine()->getManagerForClass(Property::class);
-        $properties = $this->searchService->search($em,Property::class, '4');
-//        dd($properties);
-        return $this->render('search/search.html.twig', [
-            'search' => $properties
-        ]);
     }
+
 }
 

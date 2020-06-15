@@ -14,7 +14,7 @@
 
             {% endblock %}
             <div class="container">
-                <div class="row align-items-center justify-content-center">
+                <div class="row justify-content-center mt-3">
                     <div class="col-md-3 text-center">
                         <h2>Votre recherche</h2>
                         {{ form(searchForm) }}
@@ -22,7 +22,15 @@
                     </div>
                     <div class="col-md-9">
                         <div class="grid">
-
+                            {% for result in results %}
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold">{{ result.title }}</h5>
+                                    <p class="card-text">{{ result.city }}</p>
+                                    <div class="text-secondary font-weight-bold">{{ result.price }} €</div>
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

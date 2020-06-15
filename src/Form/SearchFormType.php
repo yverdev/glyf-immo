@@ -4,11 +4,13 @@
 namespace App\Form;
 
 
+use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use function Sodium\add;
 
 class SearchFormType extends AbstractType
@@ -23,23 +25,22 @@ class SearchFormType extends AbstractType
     {
         $builder->add('city', TextType::class, [
            'required' => false,
-           'label' => 'Localité',
+           'label' => false,
            'attr' => [
                'placeholder' => 'Votre ville'
            ]
         ])
-                ->add('type', ChoiceType::class, [
+                ->add('title', ChoiceType::class, [
             'required' => false,
-            'label' => 'Type de bien',
-            'attr' => [
-                'placeholder' => 'Type de biens'
-            ],
+            'label' => false,
+            'placeholder' => 'Type de biens',
             'choices' => array_combine(self::TYPE, self::TYPE)
 
     ])
             ->add('price', ChoiceType::class, [
                 'required' => false,
-                'label' => 'Bubget max',
+                'label' => false,
+                'placeholder' => 'Bubget max',
                 'choices' => array_combine(self::PRICE, self::PRICE)
             ])
             ->add('search', SubmitType::class, [
@@ -47,4 +48,6 @@ class SearchFormType extends AbstractType
              ])
         ;
     }
+
+
 }
