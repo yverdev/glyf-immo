@@ -60,7 +60,9 @@
                                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                     <li><a href="{{path("home")}}" class="nav-link">Accueil</a></li>
                                     <li><a href="{{path('property')}}" class="nav-link">Achats-Ventes</a></li>
+
                                     <li><a href="{{path('aboutUs')}}" class="nav-link">A propos</a></li>
+
                                     <li><a href="#news-section" class="nav-link">Contact</a></li>
                                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                         <li><a href="{{ path('profile') }}">Profil</a></li>
