@@ -39,7 +39,8 @@ class UserPasswordSubscriber implements EventSubscriber
         if ($eventArgs ->getObject() instanceof User ) {
             $user = $eventArgs->getObject();
             $password = $user->getPassword();
-            if ($password){
+            $totoPassword = $this->passwordEncoder->encodePassword($user, 'Toto');
+            if ($password && substr($password, 0, 10) != substr($totoPassword, 0, 10)){
                 $passwordEncoded = $this->passwordEncoder->encodePassword($user, $password);
                 $user->setPassword($passwordEncoded);
             }

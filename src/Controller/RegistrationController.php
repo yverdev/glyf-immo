@@ -106,7 +106,7 @@ class RegistrationController extends AbstractController
      * @param UserPasswordEncoderInterface $passwordEncoder
      */
 
-    public function changeUserPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function changeUserPassword(Request $request)
     {
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -126,11 +126,10 @@ class RegistrationController extends AbstractController
 
             $newpwd = $form->get('new_password')->getData();
 
-            $newEncodedPassword = $passwordEncoder->encodePassword($user, $newpwd);
-            $user->setPassword($newEncodedPassword);
+            $user->setPassword($newpwd);
 
-            $entityManager->flush();
             $entityManager->persist($user);
+            $entityManager->flush();
             $this->addFlash('notice', 'Votre mot de passe a bien été changé !');
 
             return $this->redirectToRoute('profile');
