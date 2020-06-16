@@ -32,7 +32,7 @@ class SearchController extends AbstractController
 
         if($form->handleRequest($request)->isSubmitted() && $form->isValid()){
             $criteria = $form->getData();
-        //dd($criteria);
+        dd($criteria);
         }
 
         $algoliaFilter = [];
@@ -53,8 +53,8 @@ class SearchController extends AbstractController
         //dd($resultFilter);
         $em = $this->getDoctrine()->getManagerForClass(Property::class);
         $properties = $this->searchService->search($em,Property::class, '', [
-            'page' => 1,
-            'hitsPerPage' => 3,
+            'page' => 0,
+            'hitsPerPage' => 6,
             'filters' => $resultFilter
         ]);
         //dd($properties);

@@ -60,7 +60,7 @@
                                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                     <li><a href="{{path("home")}}" class="nav-link">Accueil</a></li>
                                     <li><a href="{{path('property')}}" class="nav-link">Achats-Ventes</a></li>
-                                    <li><a href="#agents-section" class="nav-link">Locations</a></li>
+                                    <li><a href="{{path('aboutUs')}}" class="nav-link">A propos</a></li>
 {#                                    <li><a href="#about-section" class="nav-link">A propos</a></li>#}
                                     <li><a href="#news-section" class="nav-link">Contact</a></li>
                                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -97,33 +97,33 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-5">
-                                <h2 class="footer-heading mb-4">About Us</h2>
+                                <h2 class="footer-heading mb-4">A propos</h2>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
                             </div>
                             <div class="col-md-3 mx-auto">
                                 <h2 class="footer-heading mb-4">Quick Links</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="{{ path('aboutUs') }}">A propos</a></li>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <li><a href="{{ path('profile') }}">Profil</a></li>
+                                        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                                        {% if is_granted('ROLE_ADMIN')%}
+                                            <li><a href="{{ path('easyadmin') }}">Admin</a></li>
+                                        {% elseif is_granted('ROLE_PROPERTIES_MANAGER') %}
+                                            <li><a href="{{ path('easyadmin') }}">Gestion des biens</a></li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li><a href="{{ path('app_login') }}" class="nav-link">Connexion</a></li>
+                                        <li><a href="{{ path('app_register') }}" class="nav-link">S'inscrire</a></li>
+                                    {% endif %}
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
                             </div>
 
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="mb-4">
-                            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-                            <form action="#" method="post" class="footer-subscribe">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+
 
                         <div class="">
                             <h2 class="footer-heading mb-4">Follow Us</h2>

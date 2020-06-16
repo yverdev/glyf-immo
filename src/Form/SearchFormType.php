@@ -19,7 +19,7 @@ class SearchFormType extends AbstractType
     const PRICE = [10000, 30000, 50000, 100000, 100667, 150000, 200000, 300000, 400000, 1000000];
     const SURFACE = [20, 40, 60, 100, 200, 300, 600];
     const BEDROOMS = [2, 3, 4, 5];
-    const TYPE = ['Appartement', 'Maison', 'Terrain'];
+    const TYPE = ['appartement', 'maison', 'terrain'];
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
