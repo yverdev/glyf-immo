@@ -16,8 +16,7 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-
-<<<<<<< Updated upstream
+    
     /**
      * @Route("/about", name="aboutUs")
      */
@@ -28,6 +27,5 @@ class HomeController extends AbstractController
            'controller_name' => 'HomeController',
         ]);
     }
-=======
->>>>>>> Stashed changes
+
 }
