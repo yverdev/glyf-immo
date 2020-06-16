@@ -228,4 +228,9 @@ class User implements UserInterface
             return 'Utilisateur';
         }
     }
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->isVerified;
+    }
 }

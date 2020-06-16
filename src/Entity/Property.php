@@ -5,9 +5,13 @@ namespace App\Entity;
 use App\Repository\PropertyRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\HttpFoundation\File\File;
+
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
+ * @Vich\Uploadable()
  */
 class Property
 {
@@ -37,6 +41,12 @@ class Property
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture")
+     * @var File
+     */
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="integer")
@@ -143,9 +153,15 @@ class Property
      */
     private $createAt;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updateAt;
+
     public function __construct()
     {
         $this->createAt = new \DateTime();
+        $this->updateAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -459,6 +475,38 @@ class Property
     public function setCreateAt(\DateTimeInterface $createAt): self
     {
         $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param File $pictureFile
+     * @throws \Exception
+     */
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+        if($pictureFile){
+            $this->updateAt = new \DateTime();
+        }
+    }
+
+    public function getUpdateAt(): ?\DateTimeInterface
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdateAt(\DateTimeInterface $updateAt): self
+    {
+        $this->updateAt = $updateAt;
 
         return $this;
     }

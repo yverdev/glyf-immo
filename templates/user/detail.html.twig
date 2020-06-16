@@ -4,8 +4,15 @@
 
 {% block body %}
     {% include 'incs/background_header.html.twig' %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
 <div class="container">
     <div class="row">
+
+
         <div class="col-12 mt-5">
             <p class="text-center display-4">Bonjour <strong>{{ user.firstname }} {{ user.lastname }}</strong></p>
             <p class="mt-5"><i class="far fa-user"></i> : {{ user.username }}</p>

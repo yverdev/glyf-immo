@@ -9,14 +9,14 @@ easy_admin:
                     - { property: 'ref', label: 'Référence' }
                     - { property: 'title', label: 'Nom du bien' }
                     - { property: 'description', label: 'Description', type: 'textarea'}
-                    - { property: 'picture', label: 'Photos', type: 'file' }
+                    - { property: 'pictureFile', label: 'Photos', type: 'vich_image' }
                     - { property: 'price', label: 'Prix', type: 'money', type_options: { currency: 'EUR' }}
                     - { property: 'surface', label: 'Surface' }
                     - { property: 'adress', label: 'Adresse' }
                     - { property: 'postal_code', label: 'Code postal' }
                     - { property: 'City', label: 'Ville', type: 'text'}
-                    - { property: 'number_of_parts', label: 'Nombre de pièces' }
-                    - { property: 'number_of_bedrooms', label: 'Nombre de chambres' }
+                    - { property: 'rooms', label: 'Nombre de pièces' }
+                    - { property: 'bedrooms', label: 'Nombre de chambres' }
                     - { property: 'garage', label: 'Garage' }
                     - { property: 'parking', label: 'Parking' }
                     - { property: 'balcony', label: 'Balcon' }
@@ -31,6 +31,7 @@ easy_admin:
                     - { property: 'caretaker', label: 'Gardien' }
                     - { property: 'handicap_access', label: 'Accès handicapé' }
                     - { property: 'heater', label: 'Chauffage' }
+#                    - { property: 'create_at', label: 'Date de création', type: ''}
             list:
                 fields: ['ref', { property: 'title', label: 'Nom du bien'}, { property: 'picture', label: 'Photos' }, { property: 'price', label: 'Prix' }, { property: 'adress', label: 'Adresse' }, { property: 'postal_code', label: 'Code postal'}, { property: 'city', label: 'Ville' }]
 

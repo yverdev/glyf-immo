@@ -106,7 +106,7 @@ class RegistrationController extends AbstractController
      * @param UserPasswordEncoderInterface $passwordEncoder
      */
 
-    public function changeUserPassword(Request $request)
+    public function changeUserPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -121,18 +121,25 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            # $old_password = $request->get('old_password');
-            # $new_password = $request->get('new_password');
 
-            $newpwd = $form->get('new_password')->getData();
+            $oldPassword = $request->request->get('change_password')['old_password'];
+            $isPasswordValid = $passwordEncoder->isPasswordValid($user, $oldPassword);
+            if($isPasswordValid == false){
+                $this->addFlash('password_error', 'Votre ancien mot de passe est incorrect !');
 
-            $user->setPassword($newpwd);
+            } else {
 
-            $entityManager->persist($user);
-            $entityManager->flush();
-            $this->addFlash('notice', 'Votre mot de passe a bien été changé !');
+                $newpwd = $form->get('new_password')->getData();
 
-            return $this->redirectToRoute('profile');
+                $user->setPassword($newpwd);
+
+                $entityManager->persist($user);
+                $entityManager->flush();
+                $this->addFlash('success', 'Votre mot de passe a bien été changé !');
+
+                return $this->redirectToRoute('profile');
+
+            }
         }
 
         return $this->render('registration/change_password.html.twig', [
