@@ -15,22 +15,22 @@ class PropertyFixtures extends Fixture
         for($i = 0; $i < self::NB_PROPERTY; $i++){
             $property = new Property();
 
-            $property->setTitle("Appartement $i")
-                ->setAdress("$i Avenue de ma super maison")
-                ->setCity("Paris")
+            $property->setTitle("appartement")
+                ->setType("appartement")
+                ->setAdress("$i avenue de ma super maison")
+                ->setCity("paris")
                 ->setPostalCode(random_int(75000, 75020))
-                ->setDescription("Ma super description $i")
+                ->setDescription("ma super description $i")
                 ->setPrice(random_int(10000, 1000000))
                 ->setBedrooms(random_int(1, 5))
                 ->setHeater(true)
                 ->setRef(random_int(100, 50000))
                 ->setSurface(random_int(18, 400))
                 ->setBedrooms(random_int(1, 4))
-                ->setApartment(true)
                 ->setFloor(random_int(1, 5))
                 ->setRooms(random_int(2, 5))
-                ->setSale(true);
-
+                ->setSale(true)
+                ->setPicture("http://placehold.it/250x200");
 
             $manager->persist($property);
         }

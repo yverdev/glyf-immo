@@ -42,7 +42,7 @@ class SearchController extends AbstractController
             }
             if($k == 'price' ){
                 $v = intval($v);
-                $op = "=";
+                $op = "<";
             }else{
                 $v = "\"$v\"";
                 $op = ":";

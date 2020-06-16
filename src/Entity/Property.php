@@ -99,9 +99,9 @@ class Property
     private $floor;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="string", length=100, nullable=false)
      */
-    private $locality;
+    private $type;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -112,21 +112,6 @@ class Property
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $sale;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $apartment;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $house;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $budget;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -370,14 +355,14 @@ class Property
         return $this;
     }
 
-    public function getLocality(): ?string
+    public function getType(): ?string
     {
-        return $this->locality;
+        return $this->type;
     }
 
-    public function setLocality(?string $locality): self
+    public function setType(?string $type): self
     {
-        $this->locality = $locality;
+        $this->type = $type;
 
         return $this;
     }
@@ -402,42 +387,6 @@ class Property
     public function setSale(?bool $sale): self
     {
         $this->sale = $sale;
-
-        return $this;
-    }
-
-    public function getApartment(): ?bool
-    {
-        return $this->apartment;
-    }
-
-    public function setApartment(?bool $apartment): self
-    {
-        $this->apartment = $apartment;
-
-        return $this;
-    }
-
-    public function getHouse(): ?bool
-    {
-        return $this->house;
-    }
-
-    public function setHouse(?bool $house): self
-    {
-        $this->house = $house;
-
-        return $this;
-    }
-
-    public function getBudget(): ?int
-    {
-        return $this->budget;
-    }
-
-    public function setBudget(?int $budget): self
-    {
-        $this->budget = $budget;
 
         return $this;
     }
