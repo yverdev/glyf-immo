@@ -20,7 +20,7 @@
                         <div class="mb-5">
                             <p class="text-black mb-4">Réf: {{ property.ref }}</p>
                             <h1 class="font-weight-bold">{{property.title}}</h1>
-                            <h3>{{property.numberOfParts}} pièces - {{ property.surface }} M2</h3>
+                            <h3>{{property.rooms}} pièces - {{ property.surface }} M2</h3>
                             <h2 class="text-primary font-weight-bold">{{ property.formatedPrice }} €</h2>
                             <p>{{ property.description | nl2br }}</p>
                         </div>
@@ -35,11 +35,11 @@
                                     </tr>
                                     <tr>
                                         <td>Pièces</td>
-                                        <td>{{ property.numberOfParts }}</td>
+                                        <td>{{ property.rooms }}</td>
                                     </tr>
                                     <tr>
                                         <td>Chambres</td>
-                                        <td>{{ property.numberOfBedrooms }}</td>
+                                        <td>{{ property.bedrooms }}</td>
                                     </tr>
                                     <tr>
                                         <td>Etage</td>
@@ -50,7 +50,7 @@
                                         <td>{{ property.heater }}</td>
                                     </tr>
                                 </table>
-                                <p><a href="#" class="btn btn-primary btn-sm">Contactez notre Agence</a></p>
+                                <p><a href="{{ path('property_contact', {ref:property.ref}) }}" class="btn btn-primary btn-sm">Contactez notre Agence</a></p>
                             </div>
                         </div>
                     </div>

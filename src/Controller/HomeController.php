@@ -16,7 +16,7 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-
+    
     /**
      * @Route("/about", name="aboutUs")
      */
@@ -27,4 +27,5 @@ class HomeController extends AbstractController
            'controller_name' => 'HomeController',
         ]);
     }
+
 }
