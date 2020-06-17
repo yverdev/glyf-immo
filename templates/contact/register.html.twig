@@ -5,6 +5,12 @@
 {% block body %}
     {% include 'incs/background_header.html.twig' %}
 
+    {% for message in app.flashes('send_mail_success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="container mt-5 p-lg-5">
         <h1 class="text-center mb-5">Nous contacter</h1>
 
@@ -14,6 +20,9 @@
         {{ form_row(contactForm.lastname) }}
         {{ form_row(contactForm.email) }}
         {{ form_row(contactForm.phone) }}
+{#        {% if {{ url('property_contact', {ref: property.ref}) }} %}#}
+{#            {{ form_row(contactForm.property.ref) }}#}
+{#        {% endif %}#}
         {{ form_row(contactForm.message) }}
 {#        {{ form_row(registrationForm.agreeTerms) }}#}
 
