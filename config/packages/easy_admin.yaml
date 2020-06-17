@@ -14,19 +14,17 @@ easy_admin:
                     - { property: 'surface', label: 'Surface' }
                     - { property: 'adress', label: 'Adresse' }
                     - { property: 'postal_code', label: 'Code postal' }
-                    - { property: 'City', label: 'Ville', type: 'text'}
+                    - { property: 'city', label: 'Ville', type: 'text'}
                     - { property: 'rooms', label: 'Nombre de pièces' }
                     - { property: 'bedrooms', label: 'Nombre de chambres' }
+                    - { property: 'type', label: 'Type'}
                     - { property: 'garage', label: 'Garage' }
                     - { property: 'parking', label: 'Parking' }
                     - { property: 'balcony', label: 'Balcon' }
                     - { property: 'garden', label: 'Jardin' }
                     - { property: 'floor', label: 'Étage' }
-                    - { property: 'locality', label: 'Localité' }
                     - { property: 'rental', label: 'Location' }
                     - { property: 'sale', label: 'Vente' }
-                    - { property: 'apartment', label: 'Appartement' }
-                    - { property: 'house', label: 'Maison' }
                     - { property: 'furnished', label: 'Meublé' }
                     - { property: 'caretaker', label: 'Gardien' }
                     - { property: 'handicap_access', label: 'Accès handicapé' }
