@@ -5,3 +5,4 @@ algolia_search:
     indices:
         - name: property
           class: App\Entity\Property
+          enable_serializer_groups: true

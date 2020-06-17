@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\HttpFoundation\File\File;
 
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -24,16 +25,19 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"searchable"})
      */
     private $ref;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"searchable"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"searchable"})
      */
     private $description;
 
@@ -50,111 +54,133 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"searchable"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"searchable"})
      */
     private $surface;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups({"searchable"})
      */
     private $adress;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"searchable"})
      */
     private $postal_code;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups({"searchable"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"searchable"})
      */
     private $rooms;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"searchable"})
      */
     private $bedrooms;
 
     /**
      * @ORM\Column(type="string", length=30, nullable=true)
+     * @Groups({"searchable"})
      */
     private $garage;
 
     /**
      * @ORM\Column(type="string", length=30, nullable=true)
+     * @Groups({"searchable"})
      */
     private $parking;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $balcony;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $garden;
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
+     * @Groups({"searchable"})
      */
     private $floor;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=false)
+     * @Groups({"searchable"})
      */
     private $type;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $rental;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $sale;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $furnished;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $opposite;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $caretaker;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"searchable"})
      */
     private $handicap_access;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Groups({"searchable"})
      */
     private $heater;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"searchable"})
      */
     private $createAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"searchable"})
      */
     private $updateAt;
 
