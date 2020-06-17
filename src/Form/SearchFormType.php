@@ -20,6 +20,7 @@ class SearchFormType extends AbstractType
     const SURFACE = [20, 40, 60, 100, 200, 300, 600];
     const BEDROOMS = [2, 3, 4, 5];
     const TYPE = ['appartement', 'maison', 'terrain'];
+    const BALC = [true,false];
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -42,6 +43,12 @@ class SearchFormType extends AbstractType
                 'label' => false,
                 'placeholder' => 'Bubget max',
                 'choices' => array_combine(self::PRICE, self::PRICE)
+            ])
+            ->add('balcony', ChoiceType::class, [
+                'required' => false,
+                'label' => false,
+                'placeholder' => 'Balcon',
+                'choices' => array_combine(self::BALC, self::BALC)
             ])
             ->add('search', SubmitType::class, [
                 'label' => 'Rechercher'
