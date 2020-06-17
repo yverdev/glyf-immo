@@ -47,6 +47,11 @@ class Contact
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Property::class)
+     */
+    private $property;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Contact
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getProperty(): ?Property
+    {
+        return $this->property;
+    }
+
+    public function setProperty(?Property $property): self
+    {
+        $this->property = $property;
 
         return $this;
     }

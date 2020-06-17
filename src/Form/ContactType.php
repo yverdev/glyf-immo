@@ -34,6 +34,7 @@ class ContactType extends AbstractType
                     'placeholder' => 'Si vous souhaitez vous renseigner sur un bien particulier, merci de préciser sa référence.'
                 ]
             ])
+            ->add('property')
         ;
     }
 
