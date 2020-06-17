@@ -16,15 +16,16 @@
 
         {{ form_start(contactForm) }}
 
-        {{ form_row(contactForm.firstname) }}
-        {{ form_row(contactForm.lastname) }}
-        {{ form_row(contactForm.email) }}
-        {{ form_row(contactForm.phone) }}
-{#        {% if {{ url('property_contact', {ref: property.ref}) }} %}#}
-{#            {{ form_row(contactForm.property.ref) }}#}
-{#        {% endif %}#}
+        {% if contactForm.property is defined %}
+        {{ form_row(contactForm.property, {
+            'label': 'Référence de la propriété'
+        }) }}
+        {% endif %}
+        {{ form_row(contactForm.firstname, {value:app.user ? app.user.firstname : ''}) }}
+        {{ form_row(contactForm.lastname, {value:app.user ? app.user.lastname : ''}) }}
+        {{ form_row(contactForm.email, {value:app.user ? app.user.email : ''}) }}
+        {{ form_row(contactForm.phone, {value:app.user ? app.user.phone : ''}) }}
         {{ form_row(contactForm.message) }}
-{#        {{ form_row(registrationForm.agreeTerms) }}#}
 
                 <button type="submit" class="btn btn-primary">Envoyer</button>
         {{ form_end(contactForm) }}

@@ -18,12 +18,17 @@ class ContactController extends AbstractController
      */
     public function contact(Request $request,\Swift_Mailer $mailer, Property $property = null)
     {
+        $contact = new Contact();
+        $groups = ['Default'];
         if($property != null){
-            $property->getRef();
-//            dd($property);
+            $contact->setProperty($property);
+            $groups[] = 'PropertyContact';
         }
 
-        $form = $this->createForm(ContactType::class);
+        $form = $this->createForm(ContactType::class, $contact,[
+            'validation_groups' => $groups
+        ]);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
