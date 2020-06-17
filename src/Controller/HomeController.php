@@ -28,4 +28,14 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/data_protection", name="dataProtection")
+     */
+
+    public function dataProtection() {
+        return $this->render('legal/data_protection.html.twig', [
+           'controller_name' => 'HomeController',
+        ]);
+    }
+
 }
