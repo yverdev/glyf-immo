@@ -32,7 +32,7 @@ class SearchController extends AbstractController
 
         if($form->handleRequest($request)->isSubmitted() && $form->isValid()){
             $criteria = $form->getData();
-        dd($criteria);
+        //dd($criteria);
         }
 
         $algoliaFilter = [];

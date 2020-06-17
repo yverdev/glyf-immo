@@ -6,7 +6,6 @@ use App\Repository\PropertyRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\HttpFoundation\File\File;
-
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
