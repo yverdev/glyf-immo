@@ -4,87 +4,71 @@
         {% include 'incs/background_header.html.twig' %}
 
 
-            <h1 class="text-center mt-3">Equipe de développement</h1>
-            <div class="row" >
-                <div class="card col-6" style="width: 75%">
-                    <div class="row">
-                        <div class="card-body col-3">
-                            <div class=""><img src="{{ asset("images/luffy.jpg") }}"></div>
+            <h1 class="text-center mt-5">Equipe de développement</h1>
+            <div class="row mt-5 ml-3 mr-3" >
+                <div class="col-6">
+                    <div class="row jumbotron" style="width: 100%">
+                        <div class="col-3">
+                            <div class=""><img src="{{ asset("images/luffy.jpg") }}" class="img-reponsive"></div>
                         </div>
-                        <div class="card-body col-9">
-                            <div class="">
-                                <h2>Gilles DA SILVA SANTOS</h2>
-                                <p class="card-text">Développement : <br>
-                                - Intégration du template bootstrap <br>
-                                - Création de la DB <br>
-                                - Gestion de la recherche avec l'API "ALGOLIA" <br>
-                                - Création de la page "A propos"
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card col-6" style="width: 75%">
-                    <div class="row">
-                        <div class="card-body col-3">
-                            <div class=""><img src="{{ asset("images/laura.jpg") }}"></div>
-                        </div>
-                        <div class="card-body col-9">
-                            <div class="">
-                                <h2>Laura LAMASSOURRE</h2>
-                                <p class="card-text">Développement : <br>
-                                    - Intégration du template bootstrap <br>
-                                    - Création de la l'administration à l'aide du bundle "Easy admin"<br>
-                                    - Création de la page "Contact"<br>
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        <div class="w-100"></div>
-
-            <div class="card col-6">
-                <div class="row">
-                    <div class="card-body col-3">
-                        <div class=""><img src="{{ asset("images/yann.jpg") }}"></div>
-                    </div>
-                    <div class="card-body col-9">
-                        <div class="">
-                            <h2>Yann YVER</h2>
-                            <p class="card-text">Développement : <br>
-                                - Intégration du template bootstrap <br>
-                                - Création de la DB <br>
-                                - Gestion de la recherche avec l'API "ALGOLIA" <br>
-                                - Création de la page "A propos"
+                        <div class="col-9 text-center">
+                            <h2>Gilles DA SILVA SANTOS</h2>
+                            <p class="card-text mt-2">
+                            - Intégration du template bootstrap <br>
+                            - Création de la DB <br>
+                            - Gestion de la recherche avec l'API "ALGOLIA" <br>
+                            - Création de la page "A propos"
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card col-6">
-                <div class="row">
-                    <div class="card-body col-3">
-                        <div class=""><img src="{{ asset("images/fred.jpg") }}"></div>
-                    </div>
-                    <div class="card-body col-9">
-                        <div class="">
-                            <h2>Frédérick VU </h2>
-                            <p class="card-text">Développement : <br>
+                <div class="col-6">
+                    <div class="row jumbotron" style="width: 100%">
+                        <div class="col-3">
+                            <div class=""><img src="{{ asset("images/laura.jpg") }}" class="img-reponsive"></div>
+                        </div>
+                        <div class="col-9 text-center">
+                            <h2>Laura LAMASSOURRE</h2>
+                            <p class="card-text mt-2">
                                 - Intégration du template bootstrap <br>
                                 - Création de la l'administration à l'aide du bundle "Easy admin"<br>
                                 - Création de la page "Contact"<br>
-
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
-
-
-
+            <div class="row mt-2 ml-3 mr-3">
+                <div class="col-6">
+                    <div class="row jumbotron" style="width: 100%">
+                        <div class="col-3">
+                            <div class=""><img src="{{ asset("images/avatarYannY.png") }}" class="img-reponsive"></div>
+                        </div>
+                        <div class="col-9 text-center">
+                            <h2>Yann YVER</h2>
+                            <p class="card-text mt-2">
+                                - Intégration du template bootstrap <br>
+                                - Création de la DB <br>
+                                - Gestion de la recherche avec l'API "ALGOLIA" <br>
+                                - Création de la page "A propos"
+                            </p>
+                         </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row jumbotron" style="width: 100%">
+                        <div class="col-3">
+                            <div class=""><img src="{{ asset("images/fred.jpg") }}" class="img-reponsive"></div>
+                        </div>
+                        <div class="col-9 text-center">
+                            <h2>Frédérick VU </h2>
+                            <p class="card-text mt-2">
+                                - Intégration du template bootstrap <br>
+                                - Création de la l'administration à l'aide du bundle "Easy admin"<br>
+                                - Création de la page "Contact"<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
     {% endblock %}
