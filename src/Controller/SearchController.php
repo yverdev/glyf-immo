@@ -54,7 +54,7 @@ class SearchController extends AbstractController
         $em = $this->getDoctrine()->getManagerForClass(Property::class);
         $properties = $this->searchService->search($em,Property::class, '', [
             'page' => 0,
-            'hitsPerPage' => 9,
+            'hitsPerPage' => 20,
             'filters' => $resultFilter
             //'filters' => 'price<300000'
         ]);
