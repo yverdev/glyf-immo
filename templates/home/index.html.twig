@@ -37,5 +37,25 @@
 
         </div>
     </div>
+
 </div>
+    <div class="container">
+
+        <h1 class="text-center my-5">Nos derniers biens</h1>
+
+        <div class="row">
+            {% for property in lastProperty [0:3]%}
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        {% set property_image = vich_uploader_asset(property, 'pictureFile') ? vich_uploader_asset(property, 'pictureFile') : 'http://placehold.it/900x350' %}
+                        <a href="{{ path('detailProperty', { slug: property.slug, id: property.id})  }}"><img class="d-block img-fluid border-radius" src="{{ property_image }}"></a>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
 {% endblock %}
