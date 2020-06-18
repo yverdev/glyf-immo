@@ -422,12 +422,12 @@ class Property
         return $this;
     }
 
-    public function getFloor(): ?string
+    public function getFloor(): ?int
     {
         return $this->floor;
     }
 
-    public function setFloor(?string $floor): self
+    public function setFloor(?int $floor): self
     {
         $this->floor = $floor;
 

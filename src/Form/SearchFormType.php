@@ -44,14 +44,14 @@ class SearchFormType extends AbstractType
                     'placeholder' => 'Achat/Location',
                     'choices' => array_combine(self::RENTALORSALE, self::RENTALORSALE)
                 ])
-                ->add('city', TextType::class, [
-               'required' => false,
-               'label' => false,
-               'attr' => [
-                   'placeholder' => 'Votre ville'
-                    ]
-                ])
-                ->add('poastalcode', ChoiceType::class, [
+                    ->add('city', TextType::class, [
+                   'required' => false,
+                   'label' => false,
+                   'attr' => [
+                       'placeholder' => 'Votre ville'
+                        ]
+                    ])
+                ->add('postalcode', ChoiceType::class, [
                     'required' => false,
                     'label' => false,
                     'placeholder' => 'Code Postal',

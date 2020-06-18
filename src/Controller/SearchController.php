@@ -37,17 +37,35 @@ class SearchController extends AbstractController
 
         $algoliaFilter = [];
         foreach ($criteria as $k => $v) {
-            if(!$v){
+             if(!$v){
                 continue;
             }
-            if($k == 'price' ){
+            if($k == 'price'){
                 $v = intval($v);
                 $op = "<";
             }
-            if($k == 'surface'){
+            else if($k == 'surface'){
                 $v = intval($v);
-                $op = ">";
-            }else{
+                $op = ">=";
+            }
+            else if($k == 'bedrooms'){
+                $v = intval($v);
+                $op = ">=";
+            }
+            else if($k == 'rooms'){
+                $v = intval($v);
+                $op = ">=";
+            }
+            else if($k == 'floor'){
+                $v = intval($v);
+                $op = ">=";
+            }
+            else if($k == 'rental'){
+                $v = $v=='achat' ? 1 : 0;
+                $op = "=";
+            }
+            else
+            {
                 $v = "\"$v\"";
                 $op = ":";
             }
