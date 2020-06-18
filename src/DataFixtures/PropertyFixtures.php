@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class PropertyFixtures extends Fixture
 {
-    const NB_PROPERTY = 50;
+    const NB_PROPERTY = 30;
 
     public function load(ObjectManager $manager)
     {
@@ -29,7 +29,8 @@ class PropertyFixtures extends Fixture
                 ->setBedrooms(random_int(1, 4))
                 ->setFloor(random_int(1, 5))
                 ->setRooms(random_int(2, 5))
-                ->setSale(true)
+                ->setSale(random_int(0,1) == 1)
+                ->setRental(random_int(0,1) == 1)
                 ->setPicture("http://placehold.it/250x200");
 
             $manager->persist($property);

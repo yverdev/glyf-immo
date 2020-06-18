@@ -6,9 +6,7 @@ use App\Repository\PropertyRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\HttpFoundation\File\File;
-
 use Symfony\Component\Serializer\Annotation\Groups;
-
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -96,13 +94,13 @@ class Property
     private $bedrooms;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      * @Groups({"searchable"})
      */
     private $garage;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      * @Groups({"searchable"})
      */
     private $parking;
@@ -120,7 +118,7 @@ class Property
     private $garden;
 
     /**
-     * @ORM\Column(type="string", length=20, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      * @Groups({"searchable"})
      */
     private $floor;
@@ -153,12 +151,6 @@ class Property
      * @ORM\Column(type="boolean", nullable=true)
      * @Groups({"searchable"})
      */
-    private $opposite;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     * @Groups({"searchable"})
-     */
     private $caretaker;
 
     /**
@@ -184,6 +176,50 @@ class Property
      * @Groups({"searchable"})
      */
     private $updateAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_kitchen;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_kitchen")
+     * @var File
+     */
+    private $picture_kitchen_file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_bedroom;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_bedroom")
+     * @var File
+     */
+    private $picture_bedroom_file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_bathroom;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_bathroom")
+     * @var File
+     */
+    private $picture_bathroom_file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_livingroom;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_livingroom")
+     * @var File
+     */
+    private $picture_livingroom_file;
 
     public function __construct()
     {
@@ -338,24 +374,24 @@ class Property
         return $this;
     }
 
-    public function getGarage(): ?string
+    public function getGarage(): ?bool
     {
         return $this->garage;
     }
 
-    public function setGarage(?string $garage): self
+    public function setGarage(?bool $garage): self
     {
         $this->garage = $garage;
 
         return $this;
     }
 
-    public function getParking(): ?string
+    public function getParking(): ?bool
     {
         return $this->parking;
     }
 
-    public function setParking(?string $parking): self
+    public function setParking(?bool $parking): self
     {
         $this->parking = $parking;
 
@@ -386,12 +422,12 @@ class Property
         return $this;
     }
 
-    public function getFloor(): ?string
+    public function getFloor(): ?int
     {
         return $this->floor;
     }
 
-    public function setFloor(?string $floor): self
+    public function setFloor(?int $floor): self
     {
         $this->floor = $floor;
 
@@ -442,18 +478,6 @@ class Property
     public function setFurnished(?bool $furnished): self
     {
         $this->furnished = $furnished;
-
-        return $this;
-    }
-
-    public function getOpposite(): ?bool
-    {
-        return $this->opposite;
-    }
-
-    public function setOpposite(?bool $opposite): self
-    {
-        $this->opposite = $opposite;
 
         return $this;
     }
@@ -541,6 +565,134 @@ class Property
     public function __toString()
     {
         return (string) $this->getRef();
+    }
+
+    public function getPictureKitchen(): ?string
+    {
+        return $this->picture_kitchen;
+    }
+
+    public function setPictureKitchen(?string $picture_kitchen): self
+    {
+        $this->picture_kitchen = $picture_kitchen;
+
+        return $this;
+    }
+
+    public function getPictureBedroom(): ?string
+    {
+        return $this->picture_bedroom;
+    }
+
+    public function setPictureBedroom(?string $picture_bedroom): self
+    {
+        $this->picture_bedroom = $picture_bedroom;
+
+        return $this;
+    }
+
+    public function getPictureBathroom(): ?string
+    {
+        return $this->picture_bathroom;
+    }
+
+    public function setPictureBathroom(?string $picture_bathroom): self
+    {
+        $this->picture_bathroom = $picture_bathroom;
+
+        return $this;
+    }
+
+    public function getPictureLivingroom(): ?string
+    {
+        return $this->picture_livingroom;
+    }
+
+    public function setPictureLivingroom(?string $picture_livingroom): self
+    {
+        $this->picture_livingroom = $picture_livingroom;
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureKitchenFile(): ?File
+    {
+        return $this->picture_kitchen_file;
+    }
+
+    /**
+     * @param File $picture_kitchen_file
+     * @throws \Exception
+     */
+    public function setPictureKitchenFile(?File $picture_kitchen_file = null): void
+    {
+        $this->picture_kitchen_file = $picture_kitchen_file;
+        if($picture_kitchen_file){
+            $this->updateAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureBedroomFile(): ?File
+    {
+        return $this->picture_bedroom_file;
+    }
+
+    /**
+     * @param File $picture_bedroom_file
+     * @throws \Exception
+     */
+    public function setPictureBedroomFile(?File $picture_bedroom_file = null): void
+    {
+        $this->picture_bedroom_file = $picture_bedroom_file;
+        if($picture_bedroom_file){
+            $this->updateAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureBathroomFile(): ?File
+    {
+        return $this->picture_bathroom_file;
+    }
+
+    /**
+     * @param File $picture_bathroom_file
+     * @throws \Exception
+     */
+    public function setPictureBathroomFile(?File $picture_bathroom_file = null): void
+    {
+        $this->picture_bathroom_file = $picture_bathroom_file;
+        if($picture_bathroom_file){
+            $this->updateAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureLivingroomFile(): ?File
+    {
+        return $this->picture_livingroom_file;
+    }
+
+    /**
+     * @param File $picture_livingroom_file
+     * @throws \Exception
+     */
+    public function setPictureLivingroomFile(?File $picture_livingroom_file = null): void
+    {
+        $this->picture_livingroom_file = $picture_livingroom_file;
+        if($picture_livingroom_file){
+            $this->updateAt = new \DateTime();
+        }
     }
 
 
