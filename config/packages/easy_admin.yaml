@@ -35,7 +35,7 @@ easy_admin:
                     - { property: 'heater', label: 'Chauffage' }
 #                    - { property: 'create_at', label: 'Date de création', type: ''}
             list:
-                fields: ['ref', { property: 'title', label: 'Nom du bien'}, { property: 'picture', label: 'Photos', type: 'image', base_path: '/images/properties' }, { property: 'price', label: 'Prix' }, { property: 'adress', label: 'Adresse' }, { property: 'postal_code', label: 'Code postal'}, { property: 'city', label: 'Ville' }]
+                fields: [{property: 'ref', label: 'Référence', type: 'text'}, { property: 'title', label: 'Nom du bien'}, { property: 'picture', label: 'Photos', type: 'image', base_path: '/images/properties' }, { property: 'price', label: 'Prix', type: 'text' }, { property: 'adress', label: 'Adresse' }, { property: 'postal_code', label: 'Code postal', type: 'text'}, { property: 'city', label: 'Ville' }]
 
 
         User:
