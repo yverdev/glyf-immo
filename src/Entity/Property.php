@@ -177,6 +177,50 @@ class Property
      */
     private $updateAt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_kitchen;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_kitchen")
+     * @var File
+     */
+    private $picture_kitchen_file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_bedroom;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_bedroom")
+     * @var File
+     */
+    private $picture_bedroom_file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_bathroom;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_bathroom")
+     * @var File
+     */
+    private $picture_bathroom_file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture_livingroom;
+
+    /**
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="picture_livingroom")
+     * @var File
+     */
+    private $picture_livingroom_file;
+
     public function __construct()
     {
         $this->createAt = new \DateTime();
@@ -521,6 +565,134 @@ class Property
     public function __toString()
     {
         return (string) $this->getRef();
+    }
+
+    public function getPictureKitchen(): ?string
+    {
+        return $this->picture_kitchen;
+    }
+
+    public function setPictureKitchen(?string $picture_kitchen): self
+    {
+        $this->picture_kitchen = $picture_kitchen;
+
+        return $this;
+    }
+
+    public function getPictureBedroom(): ?string
+    {
+        return $this->picture_bedroom;
+    }
+
+    public function setPictureBedroom(?string $picture_bedroom): self
+    {
+        $this->picture_bedroom = $picture_bedroom;
+
+        return $this;
+    }
+
+    public function getPictureBathroom(): ?string
+    {
+        return $this->picture_bathroom;
+    }
+
+    public function setPictureBathroom(?string $picture_bathroom): self
+    {
+        $this->picture_bathroom = $picture_bathroom;
+
+        return $this;
+    }
+
+    public function getPictureLivingroom(): ?string
+    {
+        return $this->picture_livingroom;
+    }
+
+    public function setPictureLivingroom(?string $picture_livingroom): self
+    {
+        $this->picture_livingroom = $picture_livingroom;
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureKitchenFile(): ?File
+    {
+        return $this->picture_kitchen_file;
+    }
+
+    /**
+     * @param File $picture_kitchen_file
+     * @throws \Exception
+     */
+    public function setPictureKitchenFile(?File $picture_kitchen_file = null): void
+    {
+        $this->picture_kitchen_file = $picture_kitchen_file;
+        if($picture_kitchen_file){
+            $this->updateAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureBedroomFile(): ?File
+    {
+        return $this->picture_bedroom_file;
+    }
+
+    /**
+     * @param File $picture_bedroom_file
+     * @throws \Exception
+     */
+    public function setPictureBedroomFile(?File $picture_bedroom_file = null): void
+    {
+        $this->picture_bedroom_file = $picture_bedroom_file;
+        if($picture_bedroom_file){
+            $this->updateAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureBathroomFile(): ?File
+    {
+        return $this->picture_bathroom_file;
+    }
+
+    /**
+     * @param File $picture_bathroom_file
+     * @throws \Exception
+     */
+    public function setPictureBathroomFile(?File $picture_bathroom_file = null): void
+    {
+        $this->picture_bathroom_file = $picture_bathroom_file;
+        if($picture_bathroom_file){
+            $this->updateAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureLivingroomFile(): ?File
+    {
+        return $this->picture_livingroom_file;
+    }
+
+    /**
+     * @param File $picture_livingroom_file
+     * @throws \Exception
+     */
+    public function setPictureLivingroomFile(?File $picture_livingroom_file = null): void
+    {
+        $this->picture_livingroom_file = $picture_livingroom_file;
+        if($picture_livingroom_file){
+            $this->updateAt = new \DateTime();
+        }
     }
 
 

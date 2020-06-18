@@ -9,7 +9,11 @@ easy_admin:
                     - { property: 'ref', label: 'Référence' }
                     - { property: 'title', label: 'Nom du bien' }
                     - { property: 'description', label: 'Description', type: 'textarea'}
-                    - { property: 'pictureFile', label: 'Photos', type: 'vich_image' }
+                    - { property: 'pictureFile', label: 'Photo', type: 'vich_image' }
+                    - { property: 'picture_kitchen_file', label: 'Photo cuisine', type: 'vich_image' }
+                    - { property: 'picture_bedroom_file', label: 'Photo chambre', type: 'vich_image' }
+                    - { property: 'picture_bathroom_file', label: 'Photo salle de bain', type: 'vich_image' }
+                    - { property: 'picture_livingroom_file', label: 'Photo salon', type: 'vich_image' }
                     - { property: 'price', label: 'Prix', type: 'money', type_options: { currency: 'EUR' }}
                     - { property: 'surface', label: 'Surface' }
                     - { property: 'adress', label: 'Adresse' }
