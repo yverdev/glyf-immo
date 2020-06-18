@@ -23,14 +23,14 @@
             {{ form_end(searchForm) }}
         </div>
 
-        <div class="col-md-9">
-            <div class="row flex jumbotron align-items-center  text-center mx-2">
+        <div class="col-md-9 justify-content-center">
+            <div class="row jumbotron  text-center mx-2">
             {% for result in results %}
-                <div class="card-body mb-2">
+                <div class="card-body col-md-3">
                     <div>
                         <img src="{{ result.picture }}" alt="">
                     </div>
-                    <div class="card-body">
+                    <div class="card-body ">
                         <h5 class="card-title font-weight-bold">
                             <a href="{{ path('detailProperty', {id: result.id, slug: result.slug}) }}">{{ result.title }}</a>
                         </h5>
