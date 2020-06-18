@@ -94,13 +94,13 @@ class Property
     private $bedrooms;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      * @Groups({"searchable"})
      */
     private $garage;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      * @Groups({"searchable"})
      */
     private $parking;
@@ -118,7 +118,7 @@ class Property
     private $garden;
 
     /**
-     * @ORM\Column(type="string", length=20, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      * @Groups({"searchable"})
      */
     private $floor;
@@ -146,12 +146,6 @@ class Property
      * @Groups({"searchable"})
      */
     private $furnished;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     * @Groups({"searchable"})
-     */
-    private $opposite;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -440,18 +434,6 @@ class Property
     public function setFurnished(?bool $furnished): self
     {
         $this->furnished = $furnished;
-
-        return $this;
-    }
-
-    public function getOpposite(): ?bool
-    {
-        return $this->opposite;
-    }
-
-    public function setOpposite(?bool $opposite): self
-    {
-        $this->opposite = $opposite;
 
         return $this;
     }

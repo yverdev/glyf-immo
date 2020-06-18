@@ -51,6 +51,12 @@ class SearchFormType extends AbstractType
                    'placeholder' => 'Votre ville'
                     ]
                 ])
+                ->add('poastalcode', ChoiceType::class, [
+                    'required' => false,
+                    'label' => false,
+                    'placeholder' => 'Code Postal',
+                    'choices' => array_combine(self::BOROUGH, self::BOROUGH)
+                ])
                 ->add('price', ChoiceType::class, [
                     'required' => false,
                     'label' => false,

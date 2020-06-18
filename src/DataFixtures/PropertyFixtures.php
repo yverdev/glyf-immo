@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class PropertyFixtures extends Fixture
 {
-    const NB_PROPERTY = 50;
+    const NB_PROPERTY = 30;
 
     public function load(ObjectManager $manager)
     {
