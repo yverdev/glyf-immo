@@ -91,42 +91,97 @@
             {% block body %}{% endblock %}
 
         </div>
-        <footer class="site-footer mt-5">
+{#        <footer class="site-footer mt-5">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <div class="col-md-8">#}
+{#                        <div class="row">#}
+
+{#                            <div class="col-md-8 mx-auto">#}
+{#                                <h2 class="footer-heading mb-4 text-center">Quick Links</h2>#}
+{#                                <ul class="list-unstyled">#}
+{#                                    <div class="row align-items-center justify-content-around">#}
+{#                                        <div class="col">#}
+{#                                            <li><a href="{{ path('aboutUs') }}">A propos</a></li>#}
+{#                                            <li><a href="{{ path('contact') }}">Contact</a></li>#}
+{#                                        </div>#}
+{#                                        <div class="col">#}
+{#                                            <li><a href="{{ path('dataProtection') }}">Protection des données personnelles</a></li>#}
+{#                                            <li><a href="{{ path('legalMention') }}">Mentions légales</a></li>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </ul>#}
+{#                            </div>#}
+
+{#                        </div>#}
+{#                    </div>#}
+
+{#                    <div class="col-md-4">#}
+{#                        <div class="">#}
+{#                            <h2 class="footer-heading mb-4">Suivez-nous</h2>#}
+{#                            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>#}
+{#                            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>#}
+{#                            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>#}
+{#                            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    #}
+{#                </div>#}
+{#                <div class="row pt-5 mt-5 text-center">#}
+{#                    <div class="col-md-12">#}
+{#                        <div class="border-top pt-5">#}
+{#                            <p class="copyright">#}
+{#                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | By GLYF Team#}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+
+{#                </div>#}
+{#            </div>#}
+{#        </footer>#}
+        <footer class="site-footer mt-5 ">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
+                <div class="row align-items-center justify-content-around">
+                    <div class="col-md-6 pt-3">
+                        <div class="text-center">
+                            <h2 class="footer-heading mb-3">Suivez-nous</h2>
+                            <a href="https://www.facebook.com/" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                            <a href="https://twitter.com/" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                            <a href="https://www.instagram.com/" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                            <a href="https://www.linkedin.com/" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pt-3">
+                        <iframe class="img-fluid rounded" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.757272001481!2d2.3562851!3d48.8546002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb2bbd365849898f2!2sWebforce3%20Paris%204%C3%A8me%20-%20Formation%20D%C3%A9veloppeur%20web%2C%20Technicien%20syst%C3%A8mes%20r%C3%A9seaux%2C%20Designer%20web%20marketing%20digital...!5e0!3m2!1sfr!2sfr!4v1592429321734!5m2!1sfr!2sfr" width="450" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                    <div class="col">
                         <div class="row">
 
-                            <div class="col-md-3 mx-auto">
-                                <h2 class="footer-heading mb-4">Quick Links</h2>
+                            <div class="col-md-12 mx-auto mt-5">
+{#                                <h2 class="footer-heading mb-3 text-center">Quick Links</h2>#}
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ path('aboutUs') }}">A propos</a></li>
+                                    <div class="row align-items-center justify-content-around">
 
-                                    <li><a href="{{ path('contact') }}">Contact</a></li>
+                                            <li><a href="{{ path('aboutUs') }}">A propos</a></li>
+                                            <li><a href="{{ path('contact') }}">Contact</a></li>
 
-                                    <li><a href="{{ path('dataProtection') }}">Protection des données personnelles</a></li>
+                                            <li><a href="{{ path('dataProtection') }}">Protection des données personnelles</a></li>
+                                            <li><a href="{{ path('legalMention') }}">Mentions légales</a></li>
+
+                                    </div>
                                 </ul>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-md-4">
 
 
-                        <div class="">
-                            <h2 class="footer-heading mb-4">Suivez-nous</h2>
-                            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                        </div>
 
 
-                    </div>
-                </div>
-                <div class="row pt-5 mt-5 text-center">
+                <div class="row text-center">
                     <div class="col-md-12">
-                        <div class="border-top pt-5">
+                        <div class="border-top pt-3">
                             <p class="copyright">
                                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | By GLYF Team
                             </p>
