@@ -67,19 +67,19 @@ class SearchFormType extends AbstractType
                 ->add('surface', ChoiceType::class, [
                     'required' => false,
                     'label' => false,
-                    'placeholder' => 'Surface minimum',
+                    'placeholder' => 'Surface mini',
                     'choices' => array_combine(self::SURFACE, self::SURFACE)
                 ])
                 ->add('rooms', ChoiceType::class, [
                     'required' => false,
                     'label' => false,
-                    'placeholder' => 'Nombre de pièces',
+                    'placeholder' => 'Nbre de pièces',
                     'choices' => array_combine(self::ROOMS, self::ROOMS)
                 ])
                 ->add('bedrooms', ChoiceType::class, [
                     'required' => false,
                     'label' => false,
-                    'placeholder' => 'Nombre de chambres',
+                    'placeholder' => 'Nbre de chambres',
                     'choices' => array_combine(self::BEDROOMS, self::BEDROOMS)
                 ])
                 ->add('floor', ChoiceType::class, [
@@ -118,7 +118,7 @@ class SearchFormType extends AbstractType
                 ])
                 ->add('heat', CheckboxType::class,[
                     'required' => false,
-                    'label' => 'Accès Handicapé'
+                    'label' => 'Chauffage'
                 ])
                 ->add('heater', ChoiceType::class, [
                     'required' => false,

@@ -61,7 +61,35 @@ class SearchController extends AbstractController
                 $op = ">=";
             }
             else if($k == 'rental'){
+                $v = $v=='location' ? 1 : 0;
+                $op = "=";
+            }
+            else if($k == 'sale'){
                 $v = $v=='achat' ? 1 : 0;
+                $op = "=";
+            }
+            else if($k == 'balcony'){
+                $v = $v=='balcon' ? 1 : 0;
+                $op = "=";
+            }
+            else if($k == 'garage'){
+                $v = $v=='garage' ? 1 : 0;
+                $op = "=";
+            }
+            else if($k == 'parking'){
+                $v = $v=='parking' ? 1 : 0;
+                $op = "=";
+            }
+            else if($k == 'furnished'){
+                $v = $v=='meublée' ? 1 : 0;
+                $op = "=";
+            }
+            else if($k == 'caretaker'){
+                $v = $v=='concierge' ? 1 : 0;
+                $op = "=";
+            }
+            else if($k == 'handicapAccess'){
+                $v = $v=='accès handicapé' ? 1 : 0;
                 $op = "=";
             }
             else
@@ -76,7 +104,7 @@ class SearchController extends AbstractController
         $em = $this->getDoctrine()->getManagerForClass(Property::class);
         $properties = $this->searchService->search($em,Property::class, '', [
             'page' => 0,
-            'hitsPerPage' => 20,
+            'hitsPerPage' => 30,
             'filters' => $resultFilter
             //'filters' => 'price<300000'
         ]);

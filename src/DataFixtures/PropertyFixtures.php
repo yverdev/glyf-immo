@@ -31,6 +31,13 @@ class PropertyFixtures extends Fixture
                 ->setRooms(random_int(2, 5))
                 ->setSale(random_int(0,1) == 1)
                 ->setRental(random_int(0,1) == 1)
+                ->setGarage(random_int(0,1) == 1)
+                ->setParking(random_int(0,1) == 1)
+                ->setFurnished(random_int(0,1) == 1)
+                ->setGarden(random_int(0,1) == 1)
+                ->setCaretaker(random_int(0,1) == 1)
+                ->setHandicapAccess(random_int(0,1) == 1)
+                ->setBalcony(random_int(0,1) == 1)
                 ->setPicture("http://placehold.it/250x200");
 
             $manager->persist($property);

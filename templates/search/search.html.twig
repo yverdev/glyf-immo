@@ -1,43 +1,47 @@
 {% extends 'base.html.twig' %}
     {% block title %}Bien Immobilier!{% endblock %}
-    {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
-    {% block body %}
-        {% include 'incs/background_header.html.twig' %}
-            {% block stylesheets %}
-                <style>
-                    .grid{
+        {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
+            {% block body %}
+                {% include 'incs/background_header.html.twig' %}
+                    {% block stylesheets %}
+                        <style>
+                        .grid{
                         display: grid;
                         grid-template-columns: repeat(3, 1fr);
                         grid-gap: 20px;
-                    }
-                </style>
+                        }
+                        </style>
+                    {% endblock %}
 
-            {% endblock %}
-            <div class="container">
-                <div class="row justify-content-center mt-3">
-                    <div class="col-md-3 text-center">
-                        <h2>Votre recherche</h2>
-                        {{ form_start(searchForm) }}
+    <div class="row justify-content-center mx-2 mt-2">
+        <div class="col-md-3 text-center">
+            <h2>Votre recherche</h2>
+            {{ form_start(searchForm) }}
 
-                        {{ form_widget(searchForm) }}
+            {{ form_widget(searchForm) }}
 
-                        {{ form_end(searchForm) }}
+            {{ form_end(searchForm) }}
+        </div>
+
+        <div class="col-md-9">
+            <div class="row flex jumbotron align-items-center  text-center mx-2">
+            {% for result in results %}
+                <div class="card-body mb-2">
+                    <div>
+                        <img src="{{ result.picture }}" alt="">
                     </div>
-                    <div class="col-md-9">
-                        <div class="grid">
-                            {% for result in results %}
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <h5 class="card-title font-weight-bold">{{ result.title }}</a></h5>
-                                    <p class="card-text">{{ result.city }}</p>
-                                    <div class="text-secondary font-weight-bold">{{ result.price }} €</div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">
+                            <a href="{{ path('detailProperty', {id: result.id, slug: result.slug}) }}">{{ result.title }}</a>
+                        </h5>
+                        <p class="card-text">{{ result.surface }}M2 - {{ result.rooms }} pièces</p>
+                        <p class="card-text">{{ result.postalCode }} - {{ result.city }}</p>
+                        <div class="text-secondary font-weight-bold">{{ result.formatedPrice }} €</div>
                     </div>
                 </div>
+            {% endfor %}
             </div>
-{% endblock %}
+        </div>
+    {% endblock %}
 
 
