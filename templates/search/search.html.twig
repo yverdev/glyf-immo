@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
     {% block title %}Bien Immobilier!{% endblock %}
-
+    {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
     {% block body %}
         {% include 'incs/background_header.html.twig' %}
             {% block stylesheets %}
@@ -17,15 +17,18 @@
                 <div class="row justify-content-center mt-3">
                     <div class="col-md-3 text-center">
                         <h2>Votre recherche</h2>
-                        {{ form(searchForm) }}
-                    {#<button class="btn btn-primary">Rechercher</button>#}
+                        {{ form_start(searchForm) }}
+
+                        {{ form_widget(searchForm) }}
+
+                        {{ form_end(searchForm) }}
                     </div>
                     <div class="col-md-9">
                         <div class="grid">
                             {% for result in results %}
                             <div class="card mt-3">
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold">{{ result.title }}</h5>
+                                    <h5 class="card-title font-weight-bold">{{ result.title }}</a></h5>
                                     <p class="card-text">{{ result.city }}</p>
                                     <div class="text-secondary font-weight-bold">{{ result.price }} €</div>
                                 </div>

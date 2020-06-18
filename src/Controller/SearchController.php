@@ -43,6 +43,10 @@ class SearchController extends AbstractController
             if($k == 'price' ){
                 $v = intval($v);
                 $op = "<";
+            }
+            if($k == 'surface'){
+                $v = intval($v);
+                $op = ">";
             }else{
                 $v = "\"$v\"";
                 $op = ":";

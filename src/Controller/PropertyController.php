@@ -22,7 +22,7 @@ class PropertyController extends AbstractController
     }
 
     /**
-     * @Route("/property/{slug}{id}", name="detailProperty", requirements={"slug": "[a-z0-9\-]*"})
+     * @Route("/property/{slug}-{id}", name="detailProperty", requirements={"slug": "[a-z0-9\-]*"})
      */
     public function show(Property $property, string $slug)
     {
