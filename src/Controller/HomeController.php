@@ -24,6 +24,7 @@ class HomeController extends AbstractController
             'lastProperty' => $lastProperty,
         ]);
     }
+<<<<<<< Updated upstream
     
     /**
      * @Route("/about", name="aboutUs")
@@ -54,5 +55,7 @@ class HomeController extends AbstractController
            'controller_name' => 'HomeController',
         ]);
     }
+=======
+>>>>>>> Stashed changes
 
 }
