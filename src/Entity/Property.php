@@ -374,24 +374,24 @@ class Property
         return $this;
     }
 
-    public function getGarage(): ?string
+    public function getGarage(): ?bool
     {
         return $this->garage;
     }
 
-    public function setGarage(?string $garage): self
+    public function setGarage(?bool $garage): self
     {
         $this->garage = $garage;
 
         return $this;
     }
 
-    public function getParking(): ?string
+    public function getParking(): ?bool
     {
         return $this->parking;
     }
 
-    public function setParking(?string $parking): self
+    public function setParking(?bool $parking): self
     {
         $this->parking = $parking;
 
