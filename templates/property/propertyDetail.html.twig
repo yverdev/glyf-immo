@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bien Immobilier!{% endblock %}
+{% block title %}Détails du bien{% endblock %}
 
 {% block body %}
     {% include 'incs/background_header.html.twig' %}
@@ -10,11 +10,19 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="owl-carousel slide-one-item with-dots">
-                            <div><img src="{{ asset('images/property_1.jpg') }}" alt="Image" class="img-fluid"></div>
-                            <div><img src="{{ asset('images/property_2.jpg') }}" alt="Image" class="img-fluid"></div>
-                            <div><img src="{{ asset('images/property_3.jpg') }}" alt="Image" class="img-fluid"></div>
+                            <div>{% set property_image = vich_uploader_asset(property, 'pictureFile') ? vich_uploader_asset(property, 'pictureFile') : 'http://placehold.it/900x350' %}
+                                            <img class="d-block img-fluid border-radius" src="{{ property_image }}"></div>
+                            <div>{% set property_image = vich_uploader_asset(property, 'picture_kitchen_file') ? vich_uploader_asset(property, 'picture_kitchen_file') : 'http://placehold.it/900x350' %}
+                                <img class="d-block img-fluid border-radius" src="{{ property_image }}"></div>
+                            <div>{% set property_image = vich_uploader_asset(property, 'picture_bedroom_file') ? vich_uploader_asset(property, 'picture_bedroom_file') : 'http://placehold.it/900x350' %}
+                                <img class="d-block img-fluid border-radius" src="{{ property_image }}"></div>
+                            <div>{% set property_image = vich_uploader_asset(property, 'picture_bathroom_file') ? vich_uploader_asset(property, 'picture_bathroom_file') : 'http://placehold.it/900x350' %}
+                                <img class="d-block img-fluid border-radius" src="{{ property_image }}"></div>
+                            <div>{% set property_image = vich_uploader_asset(property, 'picture_livingroom_file') ? vich_uploader_asset(property, 'picture_livingroom_file') : 'http://placehold.it/900x350' %}
+                                <img class="d-block img-fluid border-radius" src="{{ property_image }}"></div>
                         </div>
                     </div>
+
 
                     <div class="col-lg-5 pl-lg-5 ml-auto">
                         <div class="mb-5">

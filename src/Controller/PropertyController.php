@@ -37,4 +37,17 @@ class PropertyController extends AbstractController
         ]);
     }
 
+//    public function index(PropertyRepository $propertyRepository)
+//    {
+//        $lastProperty = $propertyRepository->findBy(
+//            ['type' => 'appartement'],
+//            ['ref' => 'ASC'],
+////            3
+//        );
+////        dd($lastProperty);
+//        return $this->render('home/index.html.twig', [
+//            'lastProperty' => $lastProperty,
+//        ]);
+//    }
+
 }
