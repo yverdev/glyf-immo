@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Contact;
+use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -30,17 +31,22 @@ class ContactType extends AbstractType
             ])
             ->add('message', TextareaType::class,[
                 'label' => 'Votre message',
-                'attr' => [
-                    'placeholder' => 'Si vous souhaitez vous renseigner sur un bien particulier, merci de préciser sa référence.'
-                ]
             ])
         ;
+        if (in_array('PropertyContact', $options['validation_groups'])) {
+            $builder->add('property');
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Contact::class
+            'data_class' => Contact::class,
+//            'PropertyContact' => Property::class
         ]);
+//        $resolver->setAllowedTypes(
+//            Property::class
+//
+//        );
     }
 }
