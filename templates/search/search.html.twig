@@ -28,7 +28,8 @@
             {% for result in results %}
                 <div class="card-body col-md-3">
                     <div>
-                        <img src="{{ result.picture }}" alt="">
+                        {% set property_image = vich_uploader_asset(result, 'pictureFile') ? vich_uploader_asset(result, 'pictureFile') : 'http://placehold.it/900x350' %}
+                        <a href="{{ path('detailProperty', { slug: result.slug, id: result.id})  }}"><img class="d-block img-fluid border-radius" src="{{ property_image }}"></a>
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title font-weight-bold">
